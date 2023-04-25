@@ -1,4 +1,5 @@
 <?php
+$get_ob = $_GET['ob_number'];
 
 include('../config/connection.php');
 include('agentmenu.php');
@@ -9,7 +10,7 @@ if(isset($_POST['agent_edit_case']))
    $report = mysqli_real_escape_string($conn, $_POST['report']);
    $status = mysqli_real_escape_string($conn, $_POST['status']);
 
-    $query = "UPDATE cases SET report='$report', status='$status' WHERE ob_number='$ob_number'";
+    $query = "UPDATE cases SET report='$report', status='$status' WHERE ob_number='$get_ob'";
     $result = mysqli_query($conn, $query);
 
     if($result)
