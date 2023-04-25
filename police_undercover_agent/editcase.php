@@ -6,7 +6,6 @@ include('agentmenu.php');
 
 if(isset($_POST['agent_edit_case']))
 {
-   $ob_number = mysqli_real_escape_string($conn, $_POST['ob_number']);
    $report = mysqli_real_escape_string($conn, $_POST['report']);
    $status = mysqli_real_escape_string($conn, $_POST['status']);
 
@@ -15,9 +14,22 @@ if(isset($_POST['agent_edit_case']))
 
     if($result)
     {
-        echo "<script type='text/javascript'>alert('Case Details Updated Successfully');
-        document.location='../police_undercover_agent/assignedcase.php'</script>";
-        exit(0);
+      $date_time = date('Y-m-d H:i:s');
+      $agent_name = $rows['name'];
+      $agent_id = $rows['staff_id'];
+      $agent_station = $rows['station'];
+      $agent_rank = $rows['rank'];
+
+      $audit_trail_file = fopen('../controller/audit_trail.log', 'a');
+
+      $log_message = "$date_time,\t$agent_name,\t$agent_id,\t$agent_rank,\t$agent_station,\tUpdated Case details for OB Number $ob_number. Status of case is $status\n";
+      fwrite($audit_trail_file, $log_message);
+
+      fclose($audit_trail_file);
+
+      echo "<script type='text/javascript'>alert('Case Details Updated Successfully');
+      document.location='../police_undercover_agent/assignedcase.php'</script>";
+      exit(0);
     }
     else
     {
@@ -97,7 +109,7 @@ if(isset($_POST['agent_edit_case']))
                <div class="form-box">
                   <label for="status">Select Status</label>
                   <select name="status" required>
-                     <option select hidden value="<?php echo $status; ?>"><?php if($status==''){echo 'Select';}elseif($status=='Ongoing'){echo 'Select';}else{echo $status;} ?></option>
+                     <option select hidden value="<?php echo $status; ?>"><?php if($status==''){echo 'Select';}elseif($status=='Ongoing'){echo 'Ongoing';}else{echo $status;} ?></option>
                      <option value="Ongoing">Ongoing</option>
                      <option value="Completed">Completed</option>
                   </select>
