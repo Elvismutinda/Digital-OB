@@ -22,17 +22,12 @@ include('adminmenu.php');
          var data = google.visualization.arrayToDataTable([
             ['crime_type', 'count'],
             <?php
-            $chart_query = "SELECT * FROM cases";
-            $chart_result = mysqli_query($conn, $chart_query);
-            while($chart_row = mysqli_fetch_assoc($chart_result)){
-               $crime = $chart_row['crime_type'];
-               $item = "$crime";
-               $count_sql = "SELECT COUNT(*) as count FROM cases WHERE crime_type LIKE '%$item%'"; 
-               $count_result = mysqli_query($conn, $count_sql);
-               while($count_row = mysqli_fetch_assoc($count_result)){
-               echo"['".$chart_row['crime_type']."',".$count_row['count']."],";
+               $chart_sql = "SELECT crime_type, COUNT(*) as count FROM cases GROUP BY crime_type"; 
+               $chart_result = mysqli_query($conn, $chart_sql);
+               
+               while($chart_row = mysqli_fetch_assoc($chart_result)){
+               echo"['".$chart_row['crime_type']."',".$chart_row['count']."],";
                }
-            }
             ?>
          ]);
 
