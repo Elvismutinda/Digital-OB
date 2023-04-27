@@ -100,11 +100,15 @@ INSERT INTO `crimes` (`id`, `crime_type`)
 VALUES (1, 'Domestic Violence'),
 (2, 'Murder Case'),
 (3, 'Assault'),
-(4, 'Theft Case'),
+(4, 'Theft'),
 (5, 'Defilement'),
-(6, 'Robbing'),
+(6, 'Robbery'),
 (7, 'Road Accident'),
-(8, 'Other');
+(8, 'Fraud'),
+(9, 'Vandalism'),
+(10, 'Burglary'),
+(11 'Corruption'),
+(12, 'Other');
 
 -- DATA FOR USER_TYPE --
 
