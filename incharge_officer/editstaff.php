@@ -30,6 +30,7 @@ include('inchargemenu.php');
          <div class="recentOrders edit">
             <div class="cardHeader">
                <h2>Edit Staff</h2>
+               <a href="viewstaff.php" class="btn">Go Back</a>
             </div>
             <?php include('../controller/message.php'); ?>
             <div class="form-content">
@@ -42,35 +43,16 @@ include('inchargemenu.php');
                   <input type="text" readonly="" name="staff_id" value="<?php echo $rows['staff_id']; ?>" style="background: lightgrey;">
                </div>
                <div class="form-box">
-                  <label for="station">Station:</label>
-                  <select name="station">
-                     <option select hidden value="<?php echo $rows['station']; ?>"><?php echo $rows['station']; ?></option>
-                     <?php
-                     $station_query = "SELECT * FROM stations";
-                     $station_result = mysqli_query($conn, $station_query);
-
-                     while($station_rows = mysqli_fetch_assoc($station_result)){
-                        ?>
-                        <option value="<?php echo $station_rows['station'] ?>"> <?php echo $station_rows['station'] ?></option>
-                        <?php
-                     }
-                     ?>
-                  </select>
-               </div>
-               <div class="form-box">
-                  <label for="status">Status</label>
-                  <select name="status">
-                  <option select hidden value="<?php echo $rows['status']; ?>"><?php echo $rows['status']; ?></option>
-                     <?php
-                     $query = "SELECT * FROM user_type";
-                     $result = mysqli_query($conn, $query);
-
-                     while($rows = mysqli_fetch_assoc($result)){
-                        ?>
-                        <option value="<?php echo $rows['status'] ?>"> <?php echo $rows['status'] ?></option>
-                        <?php
-                     }
-                     ?>
+                  <label for="rank">Rank</label>
+                  <select name="rank">
+                  <option select hidden value="<?php echo $rows['rank']; ?>"><?php echo $rows['rank']; ?></option>
+                  <option value="Constable">Constable</option>
+                     <option value="Corporal">Corporal</option>
+                     <option value="Sergeant">Sergeant</option>
+                     <option value="Senior Sergeant">Senior Sergeant</option>
+                     <option value="Assistant Inspector">Assistant Inspector</option>
+                     <option value="Inspector">Inspector</option>
+                     <option value="Senior Inspector">Senior Inspector</option>
                   </select>
                </div>
             </div>

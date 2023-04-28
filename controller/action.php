@@ -113,10 +113,9 @@ if(isset($_POST['edit_staff']))
 {
     $staff_id = mysqli_real_escape_string($conn, $_POST['staff_id']);
     $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $station = mysqli_real_escape_string($conn, $_POST['station']);
-    $status = mysqli_real_escape_string($conn, $_POST['status']);
+    $rank = mysqli_real_escape_string($conn, $_POST['rank']);
 
-    $query = "UPDATE users SET name='$name', station='$station', status='$status' WHERE staff_id='$staff_id' ";
+    $query = "UPDATE users SET name='$name', rank='$rank' WHERE staff_id='$staff_id' ";
     $result = mysqli_query($conn, $query);
 
     if($result)
