@@ -12,6 +12,7 @@ if(isset($_POST['add_staff'])){
    $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
    $cpass = mysqli_real_escape_string($conn, md5($_POST['cpassword']));
    $status = mysqli_real_escape_string($conn, $_POST['status']);
+   $rank = mysqli_real_escape_string($conn, $_POST['rank']);
 
    $select = " SELECT * FROM users WHERE staff_id = '$staff_id' && password = '$pass' ";
 
@@ -26,11 +27,11 @@ if(isset($_POST['add_staff'])){
       if($pass != $cpass){
          $error[] = 'Password does not match!';
       }else{
-         $insert = "INSERT INTO users(staff_id, name, station, gender, password, status) VALUES(?, ?, ?, ?, ?, ?)";
+         $insert = "INSERT INTO users(staff_id, name, station, rank, gender, password, status) VALUES(?, ?, ?, ?, ?, ?, ?)";
          $stmt = mysqli_stmt_init($conn);
          $prepareStmt = mysqli_stmt_prepare($stmt,$insert);
          if ($prepareStmt) {
-            mysqli_stmt_bind_param($stmt,"isssss",$staff_id, $name, $station, $gender, $pass, $status);
+            mysqli_stmt_bind_param($stmt,"issssss",$staff_id, $name, $station, $rank, $gender, $pass, $status);
             mysqli_stmt_execute($stmt);
             echo "<script type='text/javascript'>alert('Staff Registered Successfully');
             document.location='viewstaff.php'</script>";
@@ -111,6 +112,21 @@ if(isset($_POST['add_staff'])){
                <div class="form-box">
                   <label for="cpassword">Confirm Password</label>
                   <input type="password" name="cpassword" required>
+               </div>
+               <div class="form-box">
+                  <label for="rank">Rank</label>
+                  <select name="rank" required>
+                     <option selected hidden value="">Select Rank</option>
+                     <option value="Chief Inspector">Chief Inspector</option>
+                     <option value="Assistant Superintendent">Assistant Superintendent</option>
+                     <option value="Senior Inspector">Senior Inspector</option>
+                     <option value="Inspector">Inspector</option>
+                     <option value="Assistant Inspector">Assistant Inspector</option>
+                     <option value="Senior Sergeant">Senior Sergeant</option>
+                     <option value="Sergeant">Sergeant</option>
+                     <option value="Corporal">Corporal</option>
+                     <option value="Constable">Constable</option>
+                  </select>
                </div>
                <div class="form-box">
                   <label for="gender">Gender</label>

@@ -56,7 +56,26 @@ if(isset($_POST['add_staff'])){
        }
     }
  
- }; 
+};
+
+if (isset($_POST['admin_delete_staff']))
+{
+    $staff_id = mysqli_real_escape_string($conn, $_POST['admin_delete_staff']);
+
+    $query = "DELETE FROM users WHERE staff_id = '$staff_id'";
+    $result = mysqli_query($conn, $query);
+
+    if($result){
+        $_SESSION['message'] = "Staff deleted Successfully";
+        header("Location: ../admin/viewstaff.php");
+        exit(0);
+    }
+    else{
+        $_SESSION['message'] = "Error! Staff not deleted";
+        header("Location: ../admin/viewstaff.php");
+        exit(0);
+    }
+}
 
 if (isset($_POST['delete_staff']))
 {

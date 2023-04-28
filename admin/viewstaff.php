@@ -56,7 +56,7 @@ include('adminmenu.php');
                                 <td><?php echo $rows['gender']; ?></td>
                                 <td>
                                     <a class="edit_btn" title="Edit Staff" href="editstaff.php?staff_id=<?php echo $rows['staff_id']; ?>"><i class="bx bxs-edit"></i></a>
-                                    <button type="submit" title="Delete Staff" name="delete_staff" class="del_btn" value="<?php echo $rows['staff_id']; ?>"><i class="bx bxs-trash-alt"></i></button>
+                                    <button type="submit" title="Delete Staff" name="admin_delete_staff" class="del_btn" value="<?php echo $rows['staff_id']; ?>"><i class="bx bxs-trash-alt"></i></button>
                                 </td>
                             </tr>
                             <?php
