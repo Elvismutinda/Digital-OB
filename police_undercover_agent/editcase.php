@@ -75,13 +75,23 @@ if(isset($_POST['agent_edit_case']))
                 $query = "SELECT * FROM complainants WHERE ob_number='$ob_number'";
                 $query_run = mysqli_query($conn, $query);
 
+                $query2 = "SELECT * FROM cases WHERE ob_number='$ob_number'";
+                $query_run2 = mysqli_query($conn, $query2);
+                $strow = mysqli_fetch_assoc($query_run2);
+
                 while($row = mysqli_fetch_assoc($query_run)){
                     ?>
-                    <table>
-                    <tr>
-			 			 	<td>OB Number:</td><td><?php echo $row['ob_number']?></td>
-			 			</tr>
-                        <tr>
+                 <table>
+                  <tr>
+			 		 	   <td>OB Number:</td><td><?php echo $row['ob_number']?></td>
+			 		   </tr>
+                  <tr>
+                     <td>Crime Type:</td><td><?php echo $row['crime_type']?></td>
+                  </tr>
+                  <tr>
+                     <td>Statement:</td><td><?php echo $strow['statement']?></td>
+                  </tr>
+                  <tr>
 			 		 		<td>Name:</td><td><?php echo $row['comp_name']?></td>
 			 		 	</tr>
 					 	<tr>

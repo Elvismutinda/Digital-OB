@@ -101,6 +101,15 @@ $rows = mysqli_fetch_assoc($result);
         </ul>
       </li>
       <li>
+        <a href="reports.php">
+          <i class='bx bx-file' ></i>
+          <span class="link_name">Reports</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="reports.php">Reports</a></li>
+        </ul>
+      </li>
+      <li>
       <a href="logout.php">
           <i class='bx bx-log-out' ></i>
           <span class="link_name">Logout</span>
