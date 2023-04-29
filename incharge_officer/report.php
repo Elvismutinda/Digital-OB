@@ -68,6 +68,7 @@ include('../config/connection.php');
                             <td>Recorded By</td>
                             <td>Investigating Officer</td>
                             <td>Status</td>
+                            <td>Date Completed</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -86,6 +87,7 @@ include('../config/connection.php');
                                 <td><?php echo $rows['recorded_by']; ?></td>
                                 <td><?php echo $rows['investigator']; ?></td>
                                 <td><?php echo $rows['status']; ?></td>
+                                <td><?php echo $rows['date_completed']; ?></td>
                             </tr>
                             <?php
                         }

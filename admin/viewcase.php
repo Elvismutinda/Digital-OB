@@ -33,6 +33,7 @@ $station = $rows['station'];
                             <td>Recorded By</td>
                             <td>Investigated By</td>
                             <td>Status</td>
+                            <td>Date Completed</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,6 +57,7 @@ $station = $rows['station'];
                                 <td><?php echo $rows['recorded_by']; ?></td>
                                 <td><?php echo $rows['investigator']; ?></td>
                                 <td><?php echo $rows['status']; ?></td>
+                                <td><?php echo $rows['date_completed']; ?></td>
                             </tr>
                             <?php
                         }

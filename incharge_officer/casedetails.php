@@ -80,6 +80,7 @@ $printrow = mysqli_fetch_array($printresult);
                             <td>Investigating Officer</td>
                             <td>Statement</td>
                             <td>Status</td>
+                            <td>Date Completed</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -98,6 +99,7 @@ $printrow = mysqli_fetch_array($printresult);
                                 <td><?php echo $rows['investigator']; ?></td>
                                 <td><?php echo $rows['statement']; ?></td>
                                 <td><?php echo $rows['status']; ?></td>
+                                <td><?php echo $rows['date_completed']; ?></td>
                             </tr>
                             <?php
                         }

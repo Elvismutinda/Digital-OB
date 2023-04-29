@@ -74,6 +74,7 @@ $printrow = mysqli_fetch_array($printresult);
                             <td>Time Reported</td>
                             <td>Recorded By</td>
                             <td>Status</td>
+                            <td>Date Completed</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -91,6 +92,7 @@ $printrow = mysqli_fetch_array($printresult);
                                 <td><?php echo $rows['date_reported']; ?></td>
                                 <td><?php echo $rows['recorded_by']; ?></td>
                                 <td><?php echo $rows['status']; ?></td>
+                                <td><?php echo $rows['date_completed']; ?></td>
                             </tr>
                             <?php
                         }

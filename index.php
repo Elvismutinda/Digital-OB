@@ -111,11 +111,11 @@ if(isset($_POST['submit'])){
       <div class="login-content">
          <div class="login-box">
             <label for="staff_id"><b>Staff ID</b></label>
-            <input type="text" name="staff_id" class="form-control" required placeholder="Enter Your Staff ID">
+            <input type="text" name="staff_id" class="form-control" placeholder="Enter Your Staff ID" autocomplete="off" required>
          </div>
          <div class="login-box">
             <label for="password"><b>Password</b></label>
-            <input type="password" name="password" class="form-control" required placeholder="Enter Your Password">
+            <input type="password" name="password" class="form-control" placeholder="Enter Your Password" autocomplete="off" required>
          </div>
             <button type="submit" name="submit">Login</button>
       </div>

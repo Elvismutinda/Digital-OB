@@ -9,7 +9,13 @@ if(isset($_POST['agent_edit_case']))
    $report = mysqli_real_escape_string($conn, $_POST['report']);
    $status = mysqli_real_escape_string($conn, $_POST['status']);
 
-    $query = "UPDATE cases SET report='$report', status='$status' WHERE ob_number='$get_ob'";
+   if($status === 'Completed'){
+      $date_completed = date('Y-m-d H:i:s');
+   }else{
+      $date_completed = NULL;
+   }
+
+    $query = "UPDATE cases SET report='$report', status='$status', date_completed='$date_completed' WHERE ob_number='$get_ob'";
     $result = mysqli_query($conn, $query);
 
     if($result)
