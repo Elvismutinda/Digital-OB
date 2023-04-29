@@ -19,7 +19,7 @@ include('adminmenu.php');
          <div class="recentOrders dashboard">
             <div class="cardHeader">
                <h2>Dashboard</h2>
-               <h4><?php echo date('Y-m-d H:i:s'); ?></h4>
+               <a href="reports.php" class="btn">View Reports</a>
             </div>
             <div class="main-cards">
                <div class="card">
@@ -121,8 +121,7 @@ include('adminmenu.php');
                      ]);
 
                      var options = {
-                        title: 'Crime Reports Percentage',
-                        is3D: true,
+                        is3D: true
                      };
 
                      var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
@@ -154,7 +153,7 @@ include('adminmenu.php');
                      ]);
 
                      var options = {
-                        title: 'Case Reports Count',
+                        legend: {position: 'none'}
                      };
 
                      var chart = new google.visualization.ColumnChart(document.getElementById('columnchart'));

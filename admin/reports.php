@@ -17,12 +17,12 @@ include('adminmenu.php');
     <div class="details dashboard">
         <div class="recentOrders dashboard">
             <div class="cardHeader">
-               <h2>Dashboard</h2>
-               <h4><?php echo date('Y-m-d H:i:s'); ?></h4>
+               <h2 style="margin-bottom: 20px;">Analytical Reports</h2>
+               <a href="adminpage.php" class="btn">Return to Dashboard</a>
             </div>
             <div class="charts">
                 <div class="charts-card">
-                    <h2 class="charts-title">Daily Crime Trend</h2>
+                    <h2 class="charts-title" style="margin-bottom: 20px;">Daily Crime Trend</h2>
                     <div id="linechart_day" style="width: 430px;height: 350px;"></div>
                 </div>
                 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -47,7 +47,7 @@ include('adminmenu.php');
                             title: 'Yearly Crime Trend',
                             hAxis: {title: 'Day', titleTextStyle: {color: '#333'}},
                             vAxis: {minValue: 0},
-                            legend: { position: 'bottom' }
+                            legend: {position: 'none'}
                         };
 
                         var chart = new google.charts.Line(document.getElementById('linechart_day'));
@@ -57,8 +57,8 @@ include('adminmenu.php');
 
                 </script>
 
-<div class="charts-card">
-                    <h2 class="charts-title">Weekly Crime Trend</h2>
+                <div class="charts-card">
+                    <h2 class="charts-title" style="margin-bottom: 20px;">Weekly Crime Trend</h2>
                     <div id="linechart_week" style="width: 430px;height: 350px;"></div>
                 </div>
                 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -83,7 +83,7 @@ include('adminmenu.php');
                             title: 'Yearly Crime Trend',
                             hAxis: {title: 'Week', titleTextStyle: {color: '#333'}},
                             vAxis: {minValue: 0},
-                            legend: { position: 'bottom' }
+                            legend: {position: 'none'}
                         };
 
                         var chart = new google.charts.Line(document.getElementById('linechart_week'));
@@ -93,8 +93,8 @@ include('adminmenu.php');
 
                 </script>
 
-<div class="charts-card">
-                    <h2 class="charts-title">Monthly Crime Trend</h2>
+                <div class="charts-card">
+                    <h2 class="charts-title" style="margin-bottom: 20px;">Monthly Crime Trend</h2>
                     <div id="linechart_month" style="width: 430px;height: 350px;"></div>
                 </div>
                 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -119,7 +119,7 @@ include('adminmenu.php');
                             title: 'Yearly Crime Trend',
                             hAxis: {title: 'Month', titleTextStyle: {color: '#333'}},
                             vAxis: {minValue: 0},
-                            legend: { position: 'bottom' }
+                            legend: {position: 'none'}
                         };
 
                         var chart = new google.charts.Line(document.getElementById('linechart_month'));
@@ -129,8 +129,8 @@ include('adminmenu.php');
 
                 </script>
 
-<div class="charts-card">
-                    <h2 class="charts-title">Yearly Crime Trend</h2>
+                <div class="charts-card">
+                    <h2 class="charts-title" style="margin-bottom: 20px;">Yearly Crime Trend</h2>
                     <div id="linechart_year" style="width: 430px;height: 350px;"></div>
                 </div>
                 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -155,7 +155,7 @@ include('adminmenu.php');
                             title: 'Yearly Crime Trend',
                             hAxis: {title: 'Year', titleTextStyle: {color: '#333'}},
                             vAxis: {minValue: 0},
-                            legend: { position: 'bottom' }
+                            legend: {position: 'none'}
                         };
 
                         var chart = new google.charts.Line(document.getElementById('linechart_year'));
