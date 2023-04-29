@@ -23,7 +23,7 @@ $station = $rows['station'];
             </div>
             <div class="charts" style="margin-top: 20px;">
             <div class="charts-card">
-                  <h2 class="charts-title">Case Analytics Reports</h2>
+                  <h2 class="charts-title">Crime Analytics Reports</h2>
                   <div id="piechart_3d" style="width: 430px;height: 350px;"></div>
                </div>
                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -56,7 +56,7 @@ $station = $rows['station'];
                </script>
 
                <div class="charts-card">
-                  <h2 class="charts-title">Crime Analytics Reports</h2>
+                  <h2 class="charts-title">Case Analytics Reports</h2>
                   <div id="columnchart" style="width: 430px;height: 350px;"></div>
                </div>
                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>

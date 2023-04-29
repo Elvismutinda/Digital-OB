@@ -25,6 +25,7 @@ $station = $rows['station'];
                     <thead>
                         <tr>
                             <td>S/N</td>
+                            <td>Station</td>
                             <td>Case Number</td>
                             <td>Crime Type</td>
                             <td>Time Reported</td>
@@ -47,6 +48,7 @@ $station = $rows['station'];
                             ?>
                             <tr>
                                 <td><?php echo $sn ?></td>
+                                <td><?php echo $rows['station']; ?></td>
                                 <td><?php echo $rows['ob_number']; ?></td>
                                 <td><?php echo $rows['crime_type']; ?></td>
                                 <td><?php echo $rows['date_reported']; ?></td>

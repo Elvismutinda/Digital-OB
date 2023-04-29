@@ -130,10 +130,38 @@ include('adminmenu.php');
                   }
                </script>
 
-               <!-- <div class="charts-card">
-                  <h2 class="charts-title">Yearly Crime Analytics Reports</h2>
-                  <div id="barchart" style="width: 430px;height: 350px;"></div>
-               </div> -->
+               <div class="charts-card">
+                  <h2 class="charts-title">Cases Reported per Station</h2>
+                  <div id="columnchart" style="width: 430px;height: 350px;"></div>
+               </div>
+               <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+               <script type="text/javascript">
+                  google.charts.load('current', {'packages':['corechart']});
+                  google.charts.setOnLoadCallback(columnChart);
+
+                  function columnChart(){
+
+                     var data = google.visualization.arrayToDataTable([
+                        ['station', 'count'],
+                        <?php
+                        $chart_sql = "SELECT station, COUNT(crime_type) as count FROM cases GROUP BY station"; 
+                        $chart_result = mysqli_query($conn, $chart_sql);
+                           
+                        while($chart_row = mysqli_fetch_assoc($chart_result)){
+                           echo"['".$chart_row['station']."',".$chart_row['count']."],";
+                        }
+                        ?>
+                     ]);
+
+                     var options = {
+                        title: 'Case Reports Count',
+                     };
+
+                     var chart = new google.visualization.ColumnChart(document.getElementById('columnchart'));
+                     chart.draw(data, options);
+                  }
+               </script>
+
             </div>
          </div>
       </div>

@@ -26,10 +26,18 @@ include('adminmenu.php');
                 $file = fopen($filename, "r");
                 
                 if ($file) {
+                    $lines = array();
+                    while (($line = fgets($file)) !== false) {
+                        $lines[] = $line;
+                    }
+                    fclose($file);
+
+                    $lines = array_reverse($lines);
+
                     echo "<table>";
                     echo "<thead><tr><th>Date/Time</th><th>Name</th><th>Staff ID</th><th>Rank</th><th>Station</th><th>Action</th></tr></thead>";
                     echo "<tbody>";
-                    while (($line = fgets($file)) !== false) {
+                    foreach ($lines as $line){
                         $data = explode(",", $line);
                         echo "<tr>";
                         echo "<td style='text-align:center;'>" . $data[0] . "</td>";
@@ -42,8 +50,7 @@ include('adminmenu.php');
                     }
                     echo "</tbody>";
                     echo "</table>";
-                    fclose($file);
-                } else {
+                }else {
                     echo "Unable to open file.";
                 }
                 ?>
