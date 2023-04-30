@@ -11,11 +11,11 @@ include('../config/connection.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital OB</title>
+    <title>Case Details</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body onload="print()">
+<body">
     <div class="details staff">
         <div class="recentOrders">
             <div class="cardHeader">

@@ -22,7 +22,7 @@ $printrow = mysqli_fetch_array($printresult);
     <div class="details staff">
         <div class="recentOrders">
             <div class="tools">
-                <a href="report.php?ob_number=<?php echo $get_ob; ?>" class="btn" target="_blank">Print</a>
+                <a href="report.php?ob_number=<?php echo $get_ob; ?>" class="btn" onclick="printReport(event)" target="_blank">Print</a>
                 <a href="assignedcase.php" class="btn">Go Back</a>
             </div>
             <div class="cardHeader">
@@ -102,6 +102,22 @@ $printrow = mysqli_fetch_array($printresult);
                 </table>
         </div>
     </div>
+
+    <script>
+        function printReport(event) {
+        event.preventDefault();
+        var newWindow = window.open(event.target.href, 'printWindow');
+        newWindow.onload = function() {
+            newWindow.print();
+        };
+        window.setTimeout(function() {
+            if (!newWindow.closed) {
+            newWindow.close();
+            }
+        }, 700);
+        }
+    </script>
+
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
 </html>

@@ -14,7 +14,7 @@ include('../config/connection.php');
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body onload="print()">
+<body">
     <div class="details staff">
         <div class="recentOrders">
             <div class="cardHeader">
