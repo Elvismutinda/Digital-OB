@@ -2,6 +2,8 @@
 include('../config/connection.php');
 include('policemenu.php');
 
+$station = $rows['station'];
+
 if(isset($_POST['submit'])){
 
     $ob_number = $_POST['ob_number'];
@@ -48,10 +50,10 @@ if(isset($_POST['submit'])){
             <div class="form-content">
                <div class="form-box">
                   <label for="ob_number">OB Number</label>
-                  <select name="ob_number" required>
+                  <select name="ob_number" required onchange="fetchCrimeType()">
                      <option select hidden value="">Select OB Number</option>
                      <?php
-                     $case_query = "SELECT * FROM cases";
+                     $case_query = "SELECT * FROM cases WHERE station='$station'";
                      $case_result = mysqli_query($conn, $case_query);
 
                      while($case_rows = mysqli_fetch_assoc($case_result)){
@@ -65,32 +67,27 @@ if(isset($_POST['submit'])){
                </div>
                <div class="form-box">
                   <label for="crime_suspected">Crime Suspected of</label>
-                  <?php
-                  $sql_crime = "SELECT crime_type FROM cases WHERE ob_number='$ob_number' LIMIT 1";
-                  $sql_result = mysqli_query($conn, $sql_crime);
-                  $crime_row = mysqli_fetch_array($sql_result);
-                  ?>
-                  <input type="text" name="crime_suspected" value="<?php echo $crime_row['crime_type'] ?>" required>
+                  <input type="text" name="crime_suspected" id="crime_suspected" readonly required>
                </div>
                <div class="form-box">
                   <label for="comp_name">Name of Suspect</label>
-                  <input type="text" name="name" required>
+                  <input type="text" name="name" autocomplete="off" required>
                </div>
                <div class="form-box">
                   <label for="tel">National ID Number</label>
-                  <input type="text" name="national_id" required>
+                  <input type="text" name="national_id" autocomplete="off" required>
                </div>
                <div class="form-box">
                   <label for="occupation">Date of Birth</label>
-                  <input type="date" name="dob" required>
+                  <input type="date" name="dob" autocomplete="off" required>
                </div>
                <div class="form-box">
                   <label for="address">Address</label>
-                  <input type="text" name="address" required>
+                  <input type="text" name="address" autocomplete="off" required>
                </div>
                <div class="form-box">
                   <label for="region">Phone Number</label>
-                  <input type="number" name="phone_num" required>
+                  <input type="number" name="phone_num" autocomplete="off" required>
                </div>
                <div class="form-box">
                   <label for="gender">Gender</label>
@@ -107,5 +104,24 @@ if(isset($_POST['submit'])){
          </div>
       </div>
    </form>
+
+   <!-- Script to get the crime type in regard to the ob_number selected --> 
+
+   <script>
+
+      function fetchCrimeType() {
+         var ob_number = document.getElementsByName("ob_number")[0].value;
+         var xhttp = new XMLHttpRequest();
+         xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("crime_suspected").value = this.responseText;
+            }
+         };
+         xhttp.open("GET", "get_crimetype.php?ob_number=" + ob_number, true);
+         xhttp.send();
+      }
+
+</script>
+
 </body>
 </html>

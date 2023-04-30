@@ -32,11 +32,11 @@ include('inchargemenu.php');
             <div class="form-content">
                <div class="form-box">
                   <label for="staff_id">Staff ID</label>
-                  <input type="text" name="staff_id" required>
+                  <input type="text" name="staff_id" autocomplete="off" required>
                </div>
                <div class="form-box">
                   <label for="name">Full Name</label>
-                  <input type="text" name="name" required>
+                  <input type="text" name="name" autocomplete="off" required>
                </div>
                <div class="form-box">
                   <label for="station">Station</label>

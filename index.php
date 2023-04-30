@@ -80,7 +80,9 @@ if(isset($_POST['submit'])){
       }
      
    }else{
-      $error[] = 'Incorrect Staff ID or Password!';
+      echo "<script type='text/javascript'>alert('Invalid Staff ID or Password! Try Again.');
+      document.location='index.php'</script>";
+      exit(0);
    }
 
 
@@ -97,17 +99,9 @@ if(isset($_POST['submit'])){
    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-   
 <div class="container">
    <form action="" method="post">
       <header>Please Login Here</header>
-      <?php
-      if(isset($error)){
-         foreach($error as $error){
-            echo '<span class="error-msg">'.$error.'</span>';
-         };
-      };
-      ?>
       <div class="login-content">
          <div class="login-box">
             <label for="staff_id"><b>Staff ID</b></label>

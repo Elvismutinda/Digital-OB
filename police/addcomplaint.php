@@ -29,27 +29,27 @@ $station = $rows['station'];
 
                <div class="form-box">
                   <label for="comp_name">Name of Complainant</label>
-                  <input type="text" name="comp_name" required>
+                  <input type="text" name="comp_name" autocomplete="off" required>
                </div>
                <div class="form-box">
                   <label for="tel">Phone Number</label>
-                  <input type="text" name="tel" required>
+                  <input type="text" name="tel" autocomplete="off" required>
                </div>
                <div class="form-box">
                   <label for="occupation">Occupation</label>
-                  <input type="text" name="occupation" required>
+                  <input type="text" name="occupation" autocomplete="off" required>
                </div>
                <div class="form-box">
                   <label for="age">Age</label>
-                  <input type="number" name="age" required>
+                  <input type="number" name="age" autocomplete="off" required>
                </div>
                <div class="form-box">
                   <label for="address">Address</label>
-                  <input type="text" name="address" required>
+                  <input type="text" name="address" autocomplete="off" required>
                </div>
                <div class="form-box">
                   <label for="region">Region</label>
-                  <input type="text" name="region" required>
+                  <input type="text" name="region" autocomplete="off" required>
                </div>
                <div class="form-box">
                   <label for="gender">Gender</label>
@@ -79,7 +79,7 @@ $station = $rows['station'];
                </div>
                <div class="form-box">
                   <label for="location">Location of Crime</label>
-                  <input type="text" name="location" required>
+                  <input type="text" name="location" autocomplete="off" required>
                </div>
                <div class="form-box">
                   <label for="ob_number">OB Number</label>
@@ -88,7 +88,7 @@ $station = $rows['station'];
                   $start_result = mysqli_query($conn, $start_query);
                   $start_num = mysqli_fetch_assoc($start_result);
                   ?>
-                  <input type="text" name="ob_number" value="<?php echo $start_num['staff_id'] ?>/" required>
+                  <input type="text" name="ob_number" value="<?php echo $start_num['staff_id'] ?>/" autocomplete="off" required>
                </div>
                <input type="hidden" name="station_reported" readonly="" value="<?php echo $station ?>" required>
             </div>
