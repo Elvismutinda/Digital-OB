@@ -6,7 +6,7 @@ The system is coded in CORE PHP and connected to MariaDB dataabase that stores t
 
 ## How to get a Live Demo.
 
-After Starting Apache and MySQL in XAMPP, follow the following steps:
+Download XAMPP from any browser and after starting Apache and MySQL in XAMPP, follow the following steps:
 
 ### `Step 1:`
 
