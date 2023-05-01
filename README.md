@@ -1,12 +1,12 @@
 # Digital_OB-Project
 
-This is a personal project that I came up with to digitiz the operations of police stations in my country and also help in tracking entries made in the OB of a police station. The system also helps is evaluating trends in crime in the country.
+This is a personal project that I came up with to digitize the operations of police stations in my country and also help in tracking entries made in the OB of a police station. The system also helps is evaluating trends in crime in the country.
 
-The system is coded with CORE PHP and connected to MariaDB dataabase that stores the data. The front-end is HTML, CSS and JavaScript, and the system is hosted on the Apache Server.
+The system is coded in CORE PHP and connected to MariaDB dataabase that stores the data. The front-end is HTML, CSS and JavaScript, and the system is hosted on the Apache Server.
 
 ## How to get a Live Demo.
 
-After Starting Apache and MySQL in XAMPP, follow the following steps:
+Download XAMPP from any browser and after starting Apache and MySQL in XAMPP, follow the following steps:
 
 ### `Step 1:`
 
