@@ -23,6 +23,9 @@ include('adminmenu.php');
             </div>
             <?php include('../controller/message.php'); ?>
             <form action="../controller/action.php" method="post">
+                <div class="search">
+                    <input type="text" id="searchInput" placeholder="Search Staff">
+                </div>
                 <table class="staff_table">
                     <thead>
                         <tr><td>S/N</td>
@@ -35,7 +38,7 @@ include('adminmenu.php');
                             <td>Action</td>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="staffTableBody">
                         <?php
                         // serial number variable
                         $sn=0;
@@ -64,6 +67,31 @@ include('adminmenu.php');
                         ?>
                     </tbody>
                 </table>
+
+                <script>
+                    // Get the search input field
+                    const searchInput = document.getElementById('searchInput');
+
+                    // Add an event listener for the keyup event
+                    searchInput.addEventListener('keyup', () => {
+                    // Get the search term
+                    const searchTerm = searchInput.value.trim().toLowerCase();
+
+                    // Send an AJAX request to search for staff
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('GET', `../controller/search_staff.php?q=${searchTerm}`);
+                    xhr.onload = () => {
+                        if (xhr.status === 200) {
+                        // Replace the table rows with the search results
+                        document.getElementById('staffTableBody').innerHTML = xhr.responseText;
+                        } else {
+                        console.error('Failed to search for staff.');
+                        }
+                    };
+                    xhr.send();
+                    });
+                </script>
+
             </form>
         </div>
     </div>

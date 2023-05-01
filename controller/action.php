@@ -109,6 +109,29 @@ if (isset($_POST['delete_staff']))
     }
 }
 
+if(isset($_POST['admin_edit_staff']))
+{
+    $staff_id = mysqli_real_escape_string($conn, $_POST['staff_id']);
+    $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $rank = mysqli_real_escape_string($conn, $_POST['rank']);
+
+    $query = "UPDATE users SET name='$name', rank='$rank' WHERE staff_id='$staff_id' ";
+    $result = mysqli_query($conn, $query);
+
+    if($result)
+    {
+        echo "<script type='text/javascript'>alert('Staff Details Updated Successfully');
+        document.location='../admin/viewstaff.php'</script>";
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['message'] = "Error! Staff Details Not Updated";
+        header("Location: ../admin/editstaff.php");
+        exit(0);
+    }
+}
+
 if(isset($_POST['edit_staff']))
 {
     $staff_id = mysqli_real_escape_string($conn, $_POST['staff_id']);
