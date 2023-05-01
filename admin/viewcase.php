@@ -12,13 +12,17 @@ $station = $rows['station'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital OB</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="details cases">
         <div class="recentOrders">
             <div class="cardHeader">
                 <h2>Case List</h2>
-                <h4><?php echo date('Y-m-d H:i:s'); ?></h4>
+                <div class="search">
+                    <input type="text" placeholder="Search Staff" id="searchInput">
+                </div>
+                <a href="adminmenu.php" class="btn">Go back</a>
             </div>
             <form action="../controller/action.php" method="post">
                 <table class="case_table">
@@ -68,4 +72,16 @@ $station = $rows['station'];
         </div>
     </div>
 </body>
+
+<script>
+$(document).ready(function(){
+  $("#searchInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("table.case_table tbody tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
 </html>

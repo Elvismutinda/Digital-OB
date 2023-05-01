@@ -19,13 +19,13 @@ include('adminmenu.php');
         <div class="recentOrders">
             <div class="cardHeader">
                 <h2>Staff List</h2>
+                <div class="search">
+                    <input type="text" id="searchInput" placeholder="Search Staff">
+                </div>
                 <a href="addstaff.php" class="btn">Add Staff</a>
             </div>
             <?php include('../controller/message.php'); ?>
             <form action="../controller/action.php" method="post">
-                <div class="search">
-                    <input type="text" id="searchInput" placeholder="Search Staff">
-                </div>
                 <table class="staff_table">
                     <thead>
                         <tr><td>S/N</td>
