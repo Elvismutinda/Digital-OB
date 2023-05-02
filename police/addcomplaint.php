@@ -87,8 +87,28 @@ $station = $rows['station'];
                   $start_query = "SELECT staff_id FROM users WHERE status='Incharge Officer' && station='$station'";
                   $start_result = mysqli_query($conn, $start_query);
                   $start_num = mysqli_fetch_assoc($start_result);
+                  // get current date
+                  $current_date = date('d/m/Y');
+
+                  // get last case in database for current date
+                  $last_case_query = "SELECT * FROM cases WHERE date_reported >= '$current_date' ORDER BY id DESC LIMIT 1";
+                  $last_case_result = mysqli_query($conn, $last_case_query);
+                  $last_case_num = mysqli_num_rows($last_case_result);
+
+                  // set default OB number
+                  $ob_number = $start_num['staff_id'] . '/' . '1' . '/' . $current_date;
+
+                  // if there is a last case for current date, generate new OB number
+                  if ($last_case_num > 0) {
+                     $last_case_data = mysqli_fetch_assoc($last_case_result);
+                     $last_ob_number = $last_case_data['ob_number'];
+                     $last_ob_parts = explode('/', $last_ob_number);
+                     $last_case_number = $last_ob_parts[1];
+                     $new_case_number = intval($last_case_number) + 1;
+                     $ob_number = $start_num['staff_id'] . '/' . $new_case_number . '/' . $current_date;
+                  }
                   ?>
-                  <input type="text" name="ob_number" value="<?php echo $start_num['staff_id'] ?>/" autocomplete="off" required>
+                  <input type="text" name="ob_number" value="<?php echo $ob_number; ?>" autocomplete="off" readonly required>
                </div>
                <input type="hidden" name="station_reported" readonly="" value="<?php echo $station ?>" required>
             </div>
