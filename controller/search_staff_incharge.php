@@ -16,12 +16,10 @@ $rows = mysqli_fetch_assoc($result);
 $station = $rows['station'];
 
 // Get the search term from the query string
-$searchTerm = $_GET['q'];
+$searchTerm = mysqli_real_escape_string($conn, $_GET['q']);
 
 // Build the SQL query to search for staff
 $query = "SELECT * FROM users WHERE station='$station' AND (staff_id LIKE '%$searchTerm%' OR name LIKE '%$searchTerm%' OR rank LIKE '%$searchTerm%' OR status LIKE '%$searchTerm%' OR gender LIKE '%$searchTerm%')";
-
-// Execute the query
 $result = mysqli_query($conn, $query);
 
 // Build the table rows with the search results
