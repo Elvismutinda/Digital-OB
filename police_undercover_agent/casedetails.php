@@ -20,11 +20,11 @@ $printrow = mysqli_fetch_array($printresult);
 </head>
 <body>
     <div class="details staff">
+        <div class="tools" style="margin-bottom: 20px;">
+            <a href="report.php?ob_number=<?php echo $get_ob; ?>" class="btn" onclick="printReport(event)" target="_blank">Print</a>
+            <a href="assignedcase.php" class="btn">Go Back</a>
+        </div>
         <div class="recentOrders">
-            <div class="tools">
-                <a href="report.php?ob_number=<?php echo $get_ob; ?>" class="btn" onclick="printReport(event)" target="_blank">Print</a>
-                <a href="assignedcase.php" class="btn">Go Back</a>
-            </div>
             <div class="cardHeader">
                 <h2>Complainant Details</h2>
             </div>

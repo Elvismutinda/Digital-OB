@@ -20,7 +20,7 @@ $station = $rows['station'];
             <div class="cardHeader">
                 <h2>Case List</h2>
                 <div class="search">
-                    <input type="text" placeholder="Search Staff" id="searchInput">
+                    <input type="text" placeholder="Search Case" id="searchInput">
                 </div>
                 <a href="adminmenu.php" class="btn">Go back</a>
             </div>

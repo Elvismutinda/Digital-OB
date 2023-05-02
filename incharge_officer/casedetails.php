@@ -25,7 +25,7 @@ $printrow = mysqli_fetch_array($printresult);
 <body>
     <div class="details staff">
         <div class="tools" style="margin-bottom: 20px;">
-        <a href="report.php?ob_number=<?php echo $get_ob; ?>&investigator=<?php echo $investigator; ?>&station=<?php echo $rows['station']; ?>" class="btn" onclick="printReport(event)" target="_blank">Print</a>
+            <a href="report.php?ob_number=<?php echo $get_ob; ?>&investigator=<?php echo $investigator; ?>&station=<?php echo $rows['station']; ?>" class="btn" onclick="printReport(event)" target="_blank">Print</a>
             <a href="assigncase.php<?php echo '?ob_number='.$get_ob; ?>" class="btn"> <?php if($investigator=='' ){echo 'Assign This Case to an Investigating Officer';} else{echo 'Change Investigating Officer';}?></a>
             <a href="viewcase.php" class="btn">Go Back</a>
         </div>

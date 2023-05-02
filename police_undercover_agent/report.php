@@ -19,7 +19,6 @@ include('../config/connection.php');
         <div class="recentOrders">
             <div class="cardHeader">
                 <h2>Complainant Details</h2>
-                <h4><?php echo date('Y-m-d H:i:s'); ?></h4>
             </div>
             <?php
             if(isset($_GET['ob_number'])){
