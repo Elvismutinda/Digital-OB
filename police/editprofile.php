@@ -25,7 +25,7 @@ $rows = mysqli_fetch_array($result);
          <div class="recentOrders edit">
             <div class="cardHeader">
                <h2>Update Account Details</h2>
-               <h4><?php echo date('Y-m-d H:i:s'); ?></h4>
+               <a href="policepage.php" class="btn">Return to Dashboard</a>
             </div>
             <?php include('../controller/message.php'); ?>
             <div class="form-content">

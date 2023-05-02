@@ -2,7 +2,12 @@
 include('../config/connection.php');
 include('policemenu.php');
 
+$date_time = date('Y-m-d H:i:s');
 $station = $rows['station'];
+$police_name = $rows['name'];
+$police_id = $rows['staff_id'];
+$police_station = $rows['station'];
+$police_rank = $rows['rank'];
 
 if(isset($_POST['submit'])){
 
@@ -21,6 +26,14 @@ if(isset($_POST['submit'])){
     if ($prepareStmt) {
        mysqli_stmt_bind_param($stmt,"sssissis", $ob_number, $crime_suspected, $name, $national_id, $dob, $address, $phone_num, $gender);
        mysqli_stmt_execute($stmt);
+
+      $audit_trail_file = fopen('../controller/audit_trail.log', 'a');
+ 
+      $log_message = "$date_time,\t$police_name,\t$police_id,\t$police_rank,\t$police_station,\tAdded $name suspected of $crime_suspected to their Suspect list\n";
+      fwrite($audit_trail_file, $log_message);
+
+      fclose($audit_trail_file);
+
        echo "<script type='text/javascript'>alert('Suspect Added Successfully');
        document.location='viewsuspect.php'</script>";
        }else{
@@ -117,7 +130,7 @@ if(isset($_POST['submit'])){
                   document.getElementById("crime_suspected").value = this.responseText;
             }
          };
-         xhttp.open("GET", "get_crimetype.php?ob_number=" + ob_number, true);
+         xhttp.open("GET", "../controller/get_crimetype.php?ob_number=" + ob_number, true);
          xhttp.send();
       }
 
