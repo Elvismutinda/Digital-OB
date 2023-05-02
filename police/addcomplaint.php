@@ -91,7 +91,7 @@ $station = $rows['station'];
                   $current_date = date('d/m/Y');
 
                   // get last case in database for current date
-                  $last_case_query = "SELECT * FROM cases WHERE date_reported >= '$current_date' ORDER BY id DESC LIMIT 1";
+                  $last_case_query = "SELECT * FROM cases WHERE station='$station' && date_reported >= '$current_date' ORDER BY id DESC LIMIT 1";
                   $last_case_result = mysqli_query($conn, $last_case_query);
                   $last_case_num = mysqli_num_rows($last_case_result);
 
