@@ -19,7 +19,9 @@ $station = $rows['station'];
         <div class="recentOrders">
             <div class="cardHeader">
                 <h2>Case List</h2>
-                <input type="text" placeholder="Search Staff" id="searchInput">
+                <div class="search">
+                    <input type="text" placeholder="Search Staff" id="searchInput">
+                </div>
             </div>
             <form action="../controller/action.php" method="post">
                 <table class="case_table">

@@ -81,25 +81,54 @@ $printrow = mysqli_fetch_array($printresult);
                         <?php
                         if(isset($_GET['ob_number'])){
                             $ob_number = mysqli_real_escape_string($conn, $_GET['ob_number']);
-                        $query = "SELECT * FROM cases WHERE ob_number='$ob_number'";
-                        $result = mysqli_query($conn, $query);
+                            $query = "SELECT * FROM cases WHERE ob_number='$ob_number'";
+                            $result = mysqli_query($conn, $query);
 
-                        while($rows = mysqli_fetch_assoc($result)){
-                            ?>
-                            <tr>
-                                <td><?php echo $rows['crime_type']; ?></td>
-                                <td><?php echo $rows['statement']; ?></td>
-                                <td><?php echo $rows['date_reported']; ?></td>
-                                <td><?php echo $rows['recorded_by']; ?></td>
-                                <td><?php echo $rows['status']; ?></td>
-                                <td><?php echo $rows['date_completed']; ?></td>
-                            </tr>
-                            <?php
+                            while($rows = mysqli_fetch_assoc($result)){
+                                ?>
+                                <tr>
+                                    <td><?php echo $rows['crime_type']; ?></td>
+                                    <td><?php echo $rows['statement']; ?></td>
+                                    <td><?php echo $rows['date_reported']; ?></td>
+                                    <td><?php echo $rows['recorded_by']; ?></td>
+                                    <td><?php echo $rows['status']; ?></td>
+                                    <td><?php echo $rows['date_completed']; ?></td>
+                                </tr>
+                                <?php
+                            }
                         }
-                    }
                         ?>
                     </tbody>
                 </table>
+                <div class="cardHeader">
+                    <h2 style="margin-top: 18px;">Suspects</h2>
+                </div>
+                <?php
+                if(isset($_GET['ob_number'])){
+                    $ob_number = mysqli_real_escape_string($conn, $_GET['ob_number']);
+                    $sus_query = "SELECT * FROM suspects WHERE ob_number='$ob_number'";
+                    $sus_result = mysqli_query($conn, $sus_query);
+
+                    if(mysqli_num_rows($sus_result) > 0){
+                        ?>
+                        <ul>
+                        <?php
+                        while($sus_rows = mysqli_fetch_assoc($sus_result)){
+                            ?>
+                            <li>
+                                <?php echo $sus_rows['name']; ?> - <?php echo $sus_rows['gender']; ?>
+                            </li>
+                            <?php
+                        }
+                        ?>
+                        </ul>
+                        <?php
+                    } else {
+                        echo "No suspects yet.";
+                    }
+                }
+                ?>
+
         </div>
     </div>
 

@@ -19,7 +19,9 @@ include('agentmenu.php');
         <div class="recentOrders">
             <div class="cardHeader">
                 <h2>Assigned Cases</h2>
-                <input type="text" placeholder="Search Staff" id="searchInput">
+                <div class="search">
+                    <input type="text" placeholder="Search Staff" id="searchInput">
+                </div>
             </div>
             <form action="">
                 <table class="case_table">
