@@ -22,7 +22,6 @@ $station = $rows['station'];
                 <div class="search">
                     <input type="text" placeholder="Search Case" id="searchInput">
                 </div>
-                <a href="adminmenu.php" class="btn">Go back</a>
             </div>
             <form action="../controller/action.php" method="post">
                 <table class="case_table">

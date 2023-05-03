@@ -12,6 +12,7 @@ include('adminmenu.php');
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Digital OB</title>
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
 <form action="">
@@ -101,7 +102,6 @@ include('adminmenu.php');
                   <h2 class="charts-title">Case Analytics Reports</h2>
                   <div id="piechart_3d" style="width: 430px;height: 350px;"></div>
                </div>
-               <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                <script type="text/javascript">
                   google.charts.load('current', {'packages':['corechart']});
                   google.charts.setOnLoadCallback(pieChart);
@@ -133,7 +133,6 @@ include('adminmenu.php');
                   <h2 class="charts-title">Cases Reported per Station</h2>
                   <div id="columnchart" style="width: 430px;height: 350px;"></div>
                </div>
-               <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                <script type="text/javascript">
                   google.charts.load('current', {'packages':['corechart']});
                   google.charts.setOnLoadCallback(columnChart);

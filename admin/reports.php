@@ -11,6 +11,7 @@ include('adminmenu.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital OB</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
 <form action="">
@@ -25,7 +26,6 @@ include('adminmenu.php');
                     <h2 class="charts-title" style="margin-bottom: 20px;">Daily Crime Trend</h2>
                     <div id="linechart_day" style="width: 430px;height: 350px;"></div>
                 </div>
-                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                 <script text="text/javascript">
                     google.charts.load('current', {'packages':['Line']});
                     google.charts.setOnLoadCallback(drawChart);
@@ -61,7 +61,6 @@ include('adminmenu.php');
                     <h2 class="charts-title" style="margin-bottom: 20px;">Weekly Crime Trend</h2>
                     <div id="linechart_week" style="width: 430px;height: 350px;"></div>
                 </div>
-                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                 <script text="text/javascript">
                     google.charts.load('current', {'packages':['Line']});
                     google.charts.setOnLoadCallback(drawChart);
@@ -97,7 +96,6 @@ include('adminmenu.php');
                     <h2 class="charts-title" style="margin-bottom: 20px;">Monthly Crime Trend</h2>
                     <div id="linechart_month" style="width: 430px;height: 350px;"></div>
                 </div>
-                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                 <script text="text/javascript">
                     google.charts.load('current', {'packages':['Line']});
                     google.charts.setOnLoadCallback(drawChart);
@@ -133,7 +131,6 @@ include('adminmenu.php');
                     <h2 class="charts-title" style="margin-bottom: 20px;">Yearly Crime Trend</h2>
                     <div id="linechart_year" style="width: 430px;height: 350px;"></div>
                 </div>
-                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                 <script text="text/javascript">
                     google.charts.load('current', {'packages':['Line']});
                     google.charts.setOnLoadCallback(drawChart);

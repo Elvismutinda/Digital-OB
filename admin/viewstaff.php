@@ -22,7 +22,6 @@ include('adminmenu.php');
                 <div class="search">
                     <input type="text" id="searchInput" placeholder="Search Staff">
                 </div>
-                <a href="addstaff.php" class="btn">Add Staff</a>
             </div>
             <?php include('../controller/message.php'); ?>
             <form action="../controller/action.php" method="post">
