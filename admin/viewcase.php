@@ -29,7 +29,7 @@ $station = $rows['station'];
                         <tr>
                             <td>S/N</td>
                             <td>Station</td>
-                            <td>Case Number</td>
+                            <td>OB Number</td>
                             <td>Crime Type</td>
                             <td>Time Reported</td>
                             <td>Statement</td>

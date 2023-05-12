@@ -20,7 +20,7 @@ include('agentmenu.php');
             <div class="cardHeader">
                 <h2>Assigned Cases</h2>
                 <div class="search">
-                    <input type="text" placeholder="Search Staff" id="searchInput">
+                    <input type="text" placeholder="Search Case" id="searchInput">
                 </div>
             </div>
             <form action="">
