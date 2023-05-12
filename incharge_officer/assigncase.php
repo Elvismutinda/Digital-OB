@@ -60,7 +60,7 @@ $station = $rows['station'];
 
                      while($inv_rows = mysqli_fetch_assoc($inv_result)){
                         ?>
-                        <option value="<?php echo $inv_rows['staff_id']." , ". $inv_rows['name']."" ?>"> <?php echo $inv_rows['staff_id']." , ". $inv_rows['name']."" ?></option>
+                        <option value="<?php echo $inv_rows['staff_id']." , ". $inv_rows['name']." - ". $inv_rows['rank']."" ?>"> <?php echo $inv_rows['staff_id']." , ". $inv_rows['name']." - ". $inv_rows['rank']."" ?></option>
                         <?php
                      }
                      ?>
