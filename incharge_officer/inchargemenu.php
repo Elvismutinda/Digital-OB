@@ -69,6 +69,15 @@ $rows = mysqli_fetch_assoc($result);
         </ul>
       </li>
       <li>
+        <a href="viewsuspect.php">
+          <i class='bx bx-book-open' ></i>
+          <span class="link_name">View Suspects</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="viewsuspect.php">View Suspects</a></li>
+        </ul>
+      </li>
+      <li>
         <a href="editprofile.php">
           <i class='bx bxs-edit' ></i>
           <span class="link_name">Edit Profile</span>
