@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2023 at 12:45 PM
+-- Generation Time: May 17, 2023 at 11:30 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -77,7 +77,8 @@ INSERT INTO `cases` (`id`, `ob_number`, `crime_type`, `date_reported`, `recorded
 (29, '11/2/02/05/2023', 'Rape', '2023-05-02 14:02:03', 11001, 'Langata Police Station', 'Victim was raped in her house by an intruder who had come to steal and found her alone.', NULL, 'Ongoing', NULL, ''),
 (30, '44/1/02/05/2023', 'Vandalism', '2023-05-02 20:20:55', 44001, 'South B Police Station', 'House of victim was covered in several rolls of tissue paper.', NULL, 'Ongoing', NULL, ''),
 (31, '11/3/12/05/2023', 'Road Accident', '2023-05-12 09:36:46', 11001, 'Langata Police Station', 'The victim was driving on the highway and a red Toyota Harrier came speeding from the other side trying to overtake a lorry not knowing if the other lane of the road was clear leading to an accident.', NULL, 'Ongoing', NULL, ''),
-(32, '11/4/13/05/2023', 'Domestic Violence', '2023-05-13 10:31:36', 11001, 'Langata Police Station', 'Husband of the victim found messages on the victim\'s phone that implied she was cheating hence causing problems in the house.', NULL, 'Ongoing', NULL, '');
+(32, '11/4/13/05/2023', 'Domestic Violence', '2023-05-13 10:31:36', 11001, 'Langata Police Station', 'Husband of the victim found messages on the victim\'s phone that implied she was cheating hence causing problems in the house.', NULL, 'Ongoing', NULL, ''),
+(33, '505/1/17/05/2023', 'Rape', '2023-05-17 09:00:57', 505001, 'Karen Police Station', 'Victim was minding his own business and was brutally raped by an enormous man with the physique of goliath himself.', 505004, 'Ongoing', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -137,7 +138,8 @@ INSERT INTO `complainants` (`id`, `ob_number`, `comp_name`, `tel`, `occupation`,
 (30, '11/2/02/05/2023', 'Pauline Inembe', '073331111', 'Violinist', 34, '563 Pine St', 'Nairobi', 'Female', 'Rape', 'House', 'Langata Police Station', '2023-05-02 14:01:41'),
 (31, '44/1/02/05/2023', 'Benard Muuo', '078826262', 'Teacher', 39, '777 Pine St', 'Nairobi', 'Male', 'Vandalism', 'House', 'South B Police Station', '2023-05-02 20:19:24'),
 (32, '11/3/12/05/2023', 'Shemeji Shemester', '0712928199', 'Student', 20, '213 Maple St', 'Nairobi', 'Male', 'Road Accident', 'Highway', 'Langata Police Station', '2023-05-12 09:35:29'),
-(33, '11/4/13/05/2023', 'Mariah Carey', '078883131', 'Singer', 43, '777 Pine St', 'Nairobi', 'Male', 'Domestic Violence', 'House', 'Langata Police Station', '2023-05-13 10:30:42');
+(33, '11/4/13/05/2023', 'Mariah Carey', '078883131', 'Singer', 43, '777 Pine St', 'Nairobi', 'Male', 'Domestic Violence', 'House', 'Langata Police Station', '2023-05-13 10:30:42'),
+(34, '505/1/17/05/2023', 'Adrian Munene', '072828414', 'Student', 20, '122 Maple St', 'Nairobi', 'Male', 'Rape', 'Club', 'Karen Police Station', '2023-05-17 09:00:03');
 
 -- --------------------------------------------------------
 
@@ -219,6 +221,7 @@ INSERT INTO `stations` (`id`, `station`, `address`, `location`, `phone`, `date_a
 
 CREATE TABLE `suspects` (
   `id` int(11) NOT NULL,
+  `station` varchar(50) NOT NULL,
   `ob_number` varchar(20) NOT NULL,
   `crime_suspected` varchar(50) NOT NULL,
   `name` varchar(250) NOT NULL,
@@ -234,11 +237,12 @@ CREATE TABLE `suspects` (
 -- Dumping data for table `suspects`
 --
 
-INSERT INTO `suspects` (`id`, `ob_number`, `crime_suspected`, `name`, `national_id`, `dob`, `address`, `phone_num`, `gender`, `date_added`) VALUES
-(1, '11/4/27/04/2023', 'Theft', 'Ibrahim Rashid', 3998231, '1998-03-16', '981 Lee St', 7282111, 'Male', '2023-05-02 14:22:27'),
-(2, '11/4/27/04/2023', 'Theft', 'Abdi Manish', 131412, '1987-09-21', '872 Lee St', 78481212, 'Male', '2023-05-02 14:43:04'),
-(3, '11/1/27/04/2023', 'Burglary', 'Brian Mumo', 892773, '2000-06-13', '811 Maple St', 76661123, 'Male', '2023-05-02 14:44:40'),
-(4, '11/2/02/05/2023', 'Rape', 'Ojing Ochieng', 6235222, '1982-10-18', '772 Pine St', 78828121, 'Male', '2023-05-02 15:05:40');
+INSERT INTO `suspects` (`id`, `station`, `ob_number`, `crime_suspected`, `name`, `national_id`, `dob`, `address`, `phone_num`, `gender`, `date_added`) VALUES
+(1, 'Langata Police Station' , '11/4/27/04/2023', 'Theft', 'Ibrahim Rashid', 3998231, '1998-03-16', '981 Lee St', 7282111, 'Male', '2023-05-02 14:22:27'),
+(2, 'Langata Police Station' , '11/4/27/04/2023', 'Theft', 'Abdi Manish', 131412, '1987-09-21', '872 Lee St', 78481212, 'Male', '2023-05-02 14:43:04'),
+(3, 'Langata Police Station' , '11/1/27/04/2023', 'Burglary', 'Brian Mumo', 892773, '2000-06-13', '811 Maple St', 76661123, 'Male', '2023-05-02 14:44:40'),
+(4, 'Langata Police Station' , '11/2/02/05/2023', 'Rape', 'Ojing Ochieng', 6235222, '1982-10-18', '772 Pine St', 78828121, 'Male', '2023-05-02 15:05:40'),
+(5, 'Karen Police Station' , '505/1/17/05/2023', 'Rape', 'Dennis Ochieng', 872332, '1980-06-19', '662 Maple St', 27418741, 'Male', '2023-05-17 09:15:10');
 
 -- --------------------------------------------------------
 
@@ -495,13 +499,13 @@ ALTER TABLE `user_type`
 -- AUTO_INCREMENT for table `cases`
 --
 ALTER TABLE `cases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `complainants`
 --
 ALTER TABLE `complainants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `crimes`
@@ -519,7 +523,7 @@ ALTER TABLE `stations`
 -- AUTO_INCREMENT for table `suspects`
 --
 ALTER TABLE `suspects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user_type`

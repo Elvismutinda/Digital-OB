@@ -16,7 +16,7 @@ $station = $_GET['station'];
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body onload="print()">
+<body>
     <div class="details staff">
         <div class="recentOrders">
             <div class="cardHeader">
@@ -32,9 +32,6 @@ $station = $_GET['station'];
                 while($row = mysqli_fetch_assoc($query_run)){
                     ?>
                     <table>
-                        <tr>
-			 			 	<td>OB Number:</td><td><?php echo $row['ob_number']?></td>
-			 			</tr>
                         <tr>
 			 		 		<td>Suspect Name:</td><td><?php echo $row['name']?></td>
 			 		 	</tr>
@@ -67,6 +64,7 @@ $station = $_GET['station'];
             <table class="staff_table">
                     <thead>
                         <tr>
+                            <td>OB Number</td>
                             <td>Nature of Report</td>
                             <td>Statement</td>
                             <td>Time Reported</td>
@@ -85,6 +83,7 @@ $station = $_GET['station'];
                         while($rows = mysqli_fetch_assoc($result)){
                             ?>
                             <tr>
+                                <td><?php echo $rows['ob_number']; ?></td>
                                 <td><?php echo $rows['crime_type']; ?></td>
                                 <td><?php echo $rows['statement']; ?></td>
                                 <td><?php echo $rows['date_reported']; ?></td>

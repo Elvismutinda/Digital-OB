@@ -191,3 +191,14 @@
 2023-05-13 11:51:32,	John Smith,	11001,	Corporal,	Langata Police Station,	Logged into the system
 2023-05-13 12:30:42,	John Smith,	11001,	Corporal,	Langata Police Station,	Added a new Complainant(Mariah Carey) with OB Number 11/4/13/05/2023
 2023-05-13 12:31:36,	John Smith,	11001,	Corporal,	Langata Police Station,	Added a new Case with OB Number 11/4/13/05/2023
+2023-05-17 10:54:42,	Adrian Bikuri,	66,	Chief Inspector,	Kilimani Police Station,	Logged into the system
+2023-05-17 10:58:40,	Taylor Omondi,	505,	Chief Inspector,	Karen Police Station,	Logged into the system
+2023-05-17 10:58:53,	Bruce Wayne,	505001,	Corporal,	Karen Police Station,	Logged into the system
+2023-05-17 11:00:03,	Bruce Wayne,	505001,	Corporal,	Karen Police Station,	Added a new Complainant(Adrian Munene) with OB Number 505/1/17/05/2023
+2023-05-17 11:00:57,	Bruce Wayne,	505001,	Corporal,	Karen Police Station,	Added a new Case with OB Number 505/1/17/05/2023
+2023-05-17 11:01:11,	Bruce Wayne,	505001,	Corporal,	Karen Police Station,	Assigned Case with OB Number 505/1/17/05/2023 to 505004 , Barry Allen - Corporal
+2023-05-17 11:01:25,	Barry Allen,	505004,	Corporal,	Karen Police Station,	Logged into the system
+2023-05-17 12:15:10,	Barry Allen,	505004,	Corporal,	Karen Police Station,	Added Dennis Ochieng suspected of Rape to their Suspect list
+2023-05-17 11:41:29,	John Smith,	11001,	Corporal,	Langata Police Station,	Logged into the system
+2023-05-17 11:55:34,	John Smith,	11001,	Corporal,	Langata Police Station,	Logged into the system
+2023-05-17 11:59:05,	Elvis Mutinda,	11,	Chief Inspector,	Langata Police Station,	Logged into the system

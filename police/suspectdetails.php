@@ -24,7 +24,7 @@ $printrow = mysqli_fetch_array($printresult);
 <body>
     <div class="details staff">
         <div class="tools" style="margin-bottom: 20px;">
-            <a href="suspectreport.php?ob_number=<?php echo $get_ob; ?>&station=<?php echo $rows['station']; ?>" class="btn" target="_blank">Print</a>
+            <a href="suspectreport.php?ob_number=<?php echo $get_ob; ?>&station=<?php echo $rows['station']; ?>" class="btn" onclick="printReport(event)" target="_blank">Print</a>
             <a href="viewsuspect.php" class="btn">Go Back</a>
         </div>
         <div class="recentOrders">
@@ -40,9 +40,6 @@ $printrow = mysqli_fetch_array($printresult);
                 while($row = mysqli_fetch_assoc($query_run)){
                     ?>
                     <table>
-                        <tr>
-			 			 	<td>OB Number:</td><td><?php echo $row['ob_number']?></td>
-			 			</tr>
                         <tr>
 			 		 		<td>Suspect Name:</td><td><?php echo $row['name']?></td>
 			 		 	</tr>
@@ -75,6 +72,7 @@ $printrow = mysqli_fetch_array($printresult);
             <table class="staff_table">
                     <thead>
                         <tr>
+                            <td>OB Number</td>
                             <td>Nature of Report</td>
                             <td>Statement</td>
                             <td>Time Reported</td>
@@ -93,6 +91,7 @@ $printrow = mysqli_fetch_array($printresult);
                         while($rows = mysqli_fetch_assoc($result)){
                             ?>
                             <tr>
+                                <td><?php echo $rows['ob_number']; ?></td>
                                 <td><?php echo $rows['crime_type']; ?></td>
                                 <td><?php echo $rows['statement']; ?></td>
                                 <td><?php echo $rows['date_reported']; ?></td>
@@ -108,6 +107,22 @@ $printrow = mysqli_fetch_array($printresult);
                 </table>
         </div>
     </div>
+
+    <script>
+        function printReport(event) {
+        event.preventDefault();
+        var newWindow = window.open(event.target.href, 'printWindow');
+        newWindow.onload = function() {
+            newWindow.print();
+        };
+        window.setTimeout(function() {
+            if (!newWindow.closed) {
+            newWindow.close();
+            }
+        }, 700);
+        }
+    </script>
+    
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
 </html>

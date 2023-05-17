@@ -1,10 +1,10 @@
 <?php
 
 include('../config/connection.php');
-include('policemenu.php');
+include('agentmenu.php');
 
 $station = $rows['station'];
-
+$investigator = $rows['staff_id'];
 ?>
 
 <!DOCTYPE html>
