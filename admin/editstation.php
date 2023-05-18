@@ -29,7 +29,8 @@ include('adminmenu.php');
       <div class="details staff">
          <div class="recentOrders edit">
             <div class="cardHeader">
-               <h2>Edit Staff</h2>
+               <h2>Edit Station</h2>
+               <a href="viewstation.php" class="btn">Go Back</a>
             </div>
             <?php include('../controller/message.php'); ?>
             <div class="form-content">
