@@ -36,7 +36,7 @@ $station = $rows['station'];
                             <td>Recorded By</td>
                             <td>Investigated By</td>
                             <td>Status</td>
-                            <td>Date Completed</td>
+                            <td>Date Closed</td>
                         </tr>
                     </thead>
                     <tbody>

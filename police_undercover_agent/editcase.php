@@ -9,7 +9,7 @@ if(isset($_POST['agent_edit_case']))
    $report = mysqli_real_escape_string($conn, $_POST['report']);
    $status = mysqli_real_escape_string($conn, $_POST['status']);
 
-   if($status === 'Completed'){
+   if($status === 'Closed'){
       $date_completed = date('Y-m-d H:i:s');
    }else{
       $date_completed = NULL;
@@ -127,7 +127,7 @@ if(isset($_POST['agent_edit_case']))
                   <select name="status" required>
                      <option select hidden value="<?php echo $status; ?>"><?php if($status==''){echo 'Select';}elseif($status=='Ongoing'){echo 'Ongoing';}else{echo $status;} ?></option>
                      <option value="Ongoing">Ongoing</option>
-                     <option value="Completed">Completed</option>
+                     <option value="Closed">Closed</option>
                   </select>
                </div>
             </div>

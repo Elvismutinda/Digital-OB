@@ -80,7 +80,7 @@ $printrow = mysqli_fetch_array($printresult);
                             <td>Investigating Officer</td>
                             <td>Statement</td>
                             <td>Status</td>
-                            <td>Date Completed</td>
+                            <td>Date Closed</td>
                         </tr>
                     </thead>
                     <tbody>

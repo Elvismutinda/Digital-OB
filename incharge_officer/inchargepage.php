@@ -83,10 +83,10 @@ $station = $rows['station'];
 
                <div class="card">
                   <div class="card-inner">
-                     <h3>Cases Completed</h3>
+                     <h3>Cases Closed</h3>
                   </div>
                   <?php
-                  $dash_complete_query = "SELECT * FROM cases WHERE station='$station' && status='Completed'";
+                  $dash_complete_query = "SELECT * FROM cases WHERE station='$station' && status='Closed'";
                   $dash_complete_result = mysqli_query($conn, $dash_complete_query);
                   
                   if($dash_complete_total = mysqli_num_rows($dash_complete_result)){

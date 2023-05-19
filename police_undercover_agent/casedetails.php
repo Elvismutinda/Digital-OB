@@ -74,7 +74,7 @@ $printrow = mysqli_fetch_array($printresult);
                             <td>Time Reported</td>
                             <td>Recorded By</td>
                             <td>Status</td>
-                            <td>Date Completed</td>
+                            <td>Date Closed</td>
                         </tr>
                     </thead>
                     <tbody>

@@ -35,7 +35,7 @@ include('agentmenu.php');
                             <td>Reported By</td>
                             <td>Station</td>
                             <td>Status</td>
-                            <td>Date Completed</td>
+                            <td>Date Closed</td>
                             <td>Action</td>
                         </tr>
                     </thead>

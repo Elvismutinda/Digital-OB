@@ -68,7 +68,7 @@ include('../config/connection.php');
                             <td>Recorded By</td>
                             <td>Investigating Officer</td>
                             <td>Status</td>
-                            <td>Date Completed</td>
+                            <td>Date Closed</td>
                         </tr>
                     </thead>
                     <tbody>

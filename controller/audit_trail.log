@@ -88,7 +88,7 @@
 2023-04-28 10:18:11,	Ryan Silu,	22,	Chief Inspector,	Central Police Station,	Logged into the system
 2023-04-28 10:19:05,	Ryan Silu,	22,	Chief Inspector,	Central Police Station,	Assigned Case with OB Number 22/1/27/04/2023 to 22006 , Sophia Johnson
 2023-04-28 10:19:16,	Sophia Johnson,	22006,	Corporal,	Central Police Station,	Logged into the system
-2023-04-28 11:20:56,	Sophia Johnson,	22006,	Corporal,	Central Police Station,	Updated Case details for OB Number . Status of case is Completed
+2023-04-28 11:20:56,	Sophia Johnson,	22006,	Corporal,	Central Police Station,	Updated Case details for OB Number . Status of case is Closed
 2023-04-28 10:25:29,	John Smith,	11001,	Corporal,	Langata Police Station,	Logged into the system
 2023-04-28 10:26:04,	Sophia Johnson,	22006,	Corporal,	Central Police Station,	Logged into the system
 2023-04-28 10:29:40,	Elvis Mutinda,	11,	Chief Inspector,	Langata Police Station,	Logged into the system
@@ -125,11 +125,11 @@
 2023-04-29 14:13:21,	Barbara Gordon,	909003,	Corporal,	Westlands Police Station,	Added a new Complainant(Stacy Wachira) with OB Number 909/1/29/04/2023
 2023-04-29 14:13:52,	Barbara Gordon,	909003,	Corporal,	Westlands Police Station,	Added a new Case with OB Number 909/1/29/04/2023
 2023-04-29 20:51:05,	David Lee,	11003,	Corporal,	Langata Police Station,	Logged into the system
-2023-04-29 21:51:25,	David Lee,	11003,	Corporal,	Langata Police Station,	Updated Case details for OB Number . Status of case is Completed
+2023-04-29 21:51:25,	David Lee,	11003,	Corporal,	Langata Police Station,	Updated Case details for OB Number . Status of case is Closed
 2023-04-29 21:55:06,	David Lee,	11003,	Corporal,	Langata Police Station,	Updated Case details for OB Number . Status of case is Ongoing
-2023-04-29 21:57:08,	David Lee,	11003,	Corporal,	Langata Police Station,	Updated Case details for OB Number . Status of case is Completed
+2023-04-29 21:57:08,	David Lee,	11003,	Corporal,	Langata Police Station,	Updated Case details for OB Number . Status of case is Closed
 2023-04-29 20:59:06,	Sophia Johnson,	22006,	Corporal,	Central Police Station,	Logged into the system
-2023-04-29 21:59:14,	Sophia Johnson,	22006,	Corporal,	Central Police Station,	Updated Case details for OB Number . Status of case is Completed
+2023-04-29 21:59:14,	Sophia Johnson,	22006,	Corporal,	Central Police Station,	Updated Case details for OB Number . Status of case is Closed
 2023-04-29 21:04:58,	John Smith,	11001,	Corporal,	Langata Police Station,	Logged into the system
 2023-04-29 21:22:44,	Elvis Mutinda,	11,	Chief Inspector,	Langata Police Station,	Logged into the system
 2023-04-29 21:23:09,	Ryan Silu,	22,	Chief Inspector,	Central Police Station,	Logged into the system
@@ -177,7 +177,7 @@
 2023-05-12 10:51:36,	Elvis Mutinda,	11,	Chief Inspector,	Langata Police Station,	Logged into the system
 2023-05-12 10:52:27,	John Smith,	11001,	Corporal,	Langata Police Station,	Logged into the system
 2023-05-12 10:54:56,	David Lee,	11003,	Corporal,	Langata Police Station,	Logged into the system
-2023-05-12 11:57:55,	David Lee,	11003,	Corporal,	Langata Police Station,	Updated Case details for OB Number . Status of case is Completed
+2023-05-12 11:57:55,	David Lee,	11003,	Corporal,	Langata Police Station,	Updated Case details for OB Number . Status of case is Closed
 2023-05-12 11:02:39,	John Smith,	11001,	Corporal,	Langata Police Station,	Logged into the system
 2023-05-12 11:10:54,	Elvis Mutinda,	11,	Chief Inspector,	Langata Police Station,	Logged into the system
 2023-05-12 11:34:22,	John Smith,	11001,	Corporal,	Langata Police Station,	Logged into the system
@@ -207,3 +207,11 @@
 2023-05-18 15:36:02,	John Smith,	11001,	Corporal,	Langata Police Station,	Logged into the system
 2023-05-18 15:36:13,	Emma Brown,	11006,	Corporal,	Langata Police Station,	Logged into the system
 2023-05-19 10:00:17,	David Lee,	11003,	Corporal,	Langata Police Station,	Logged into the system
+2023-05-19 11:07:53,	Elvis Mutinda,	11,	Chief Inspector,	Langata Police Station,	Logged into the system
+2023-05-19 11:08:09,	John Smith,	11001,	Corporal,	Langata Police Station,	Logged into the system
+2023-05-19 11:24:05,	John Smith,	11001,	Corporal,	Langata Police Station,	Logged into the system
+2023-05-19 11:25:22,	John Smith,	11001,	Corporal,	Langata Police Station,	Added a new Complainant(ewf) with OB Number 11/5/19/05/2023
+2023-05-19 11:25:37,	John Smith,	11001,	Corporal,	Langata Police Station,	Added a new Case with OB Number 11/5/19/05/2023
+2023-05-19 11:26:05,	John Smith,	11001,	Corporal,	Langata Police Station,	Assigned Case with OB Number 11/5/19/05/2023 to 11008 , Ava Hernandez - Corporal
+2023-05-19 12:46:58,	David Lee,	11003,	Corporal,	Langata Police Station,	Logged into the system
+2023-05-19 13:47:14,	David Lee,	11003,	Corporal,	Langata Police Station,	Updated Case details for OB Number . Status of case is Closed
