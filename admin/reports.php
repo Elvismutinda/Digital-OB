@@ -28,7 +28,7 @@ include('adminmenu.php');
                     <input type="date" id="start_date" name="start_date" value="<?php echo isset($_POST['start_date']) ? $_POST['start_date'] : ''; ?>">
                     <label for="end_date">End Date:</label>
                     <input type="date" id="end_date" name="end_date" value="<?php echo isset($_POST['end_date']) ? $_POST['end_date'] : ''; ?>">
-                    <button type="submit" name="generate_report">Generate Report</button>
+                    <button type="submit" class="btn" name="generate_report" style="margin-top: 20px; margin-bottom: 20px;">Generate Report</button>
                     <div id="linechart" style="width: 430px;height: 350px;"></div>
                 </div>
                 <?php
