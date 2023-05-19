@@ -14,7 +14,7 @@ include('adminmenu.php');
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
-<form action="">
+<form action="" method="post">
     <div class="details dashboard">
         <div class="recentOrders dashboard">
             <div class="cardHeader">
@@ -23,9 +23,31 @@ include('adminmenu.php');
             </div>
             <div class="charts">
                 <div class="charts-card">
-                    <h2 class="charts-title" style="margin-bottom: 20px;">Daily Crime Trend</h2>
-                    <div id="linechart_day" style="width: 430px;height: 350px;"></div>
+                    <h2 class="charts-title" style="margin-bottom: 20px;">Crime Trend</h2>
+                    <label for="start_date">Start Date:</label>
+                    <input type="date" id="start_date" name="start_date" value="<?php echo isset($_POST['start_date']) ? $_POST['start_date'] : ''; ?>">
+                    <label for="end_date">End Date:</label>
+                    <input type="date" id="end_date" name="end_date" value="<?php echo isset($_POST['end_date']) ? $_POST['end_date'] : ''; ?>">
+                    <button type="submit" name="generate_report">Generate Report</button>
+                    <div id="linechart" style="width: 430px;height: 350px;"></div>
                 </div>
+                <?php
+                if (isset($_POST['generate_report'])) {
+                    $start_date = $_POST['start_date'];
+                    $end_date = $_POST['end_date'];
+
+                    $line_sql = "SELECT DATE(date_reported) as day, COUNT(*) as num_crimes FROM cases WHERE DATE(date_reported) BETWEEN '$start_date' AND '$end_date' GROUP BY DATE(date_reported)";
+                    $line_result = mysqli_query($conn, $line_sql);
+
+                    $data_rows = [];
+                    while($line_row = mysqli_fetch_assoc($line_result)){
+                        $data_rows[] = "['".$line_row['day']."',".$line_row['num_crimes']."]";
+                    }
+
+                    $chart_data = implode(",", $data_rows);
+                }
+                ?>
+
                 <script text="text/javascript">
                     google.charts.load('current', {'packages':['Line']});
                     google.charts.setOnLoadCallback(drawChart);
@@ -33,133 +55,20 @@ include('adminmenu.php');
                     function drawChart() {
                         var data = google.visualization.arrayToDataTable([
                             ['Day', 'Crimes Count'],
-                            <?php
-                            $line_sql = "SELECT DATE(date_reported) as day, COUNT(*) as num_crimes FROM cases GROUP BY DATE(date_reported)";
-                            $line_result = mysqli_query($conn, $line_sql);
-
-                            while($line_row = mysqli_fetch_assoc($line_result)){
-                                echo"['".$line_row['day']."',".$line_row['num_crimes']."],";
-                            }
-                            ?>
+                            <?php echo $chart_data; ?>
                         ]);
 
                         var options = {
-                            title: 'Yearly Crime Trend',
+                            title: 'Crime Trend',
                             hAxis: {title: 'Day', titleTextStyle: {color: '#333'}},
                             vAxis: {minValue: 0},
                             legend: {position: 'none'}
                         };
 
-                        var chart = new google.charts.Line(document.getElementById('linechart_day'));
+                        var chart = new google.charts.Line(document.getElementById('linechart'));
                         
                         chart.draw(data, options);
                     }
-
-                </script>
-
-                <div class="charts-card">
-                    <h2 class="charts-title" style="margin-bottom: 20px;">Weekly Crime Trend</h2>
-                    <div id="linechart_week" style="width: 430px;height: 350px;"></div>
-                </div>
-                <script text="text/javascript">
-                    google.charts.load('current', {'packages':['Line']});
-                    google.charts.setOnLoadCallback(drawChart);
-
-                    function drawChart() {
-                        var data = google.visualization.arrayToDataTable([
-                            ['Week', 'Crimes Count'],
-                            <?php
-                            $line_sql = "SELECT WEEK(date_reported) as week, COUNT(*) as num_crimes FROM cases GROUP BY WEEK(date_reported)";
-                            $line_result = mysqli_query($conn, $line_sql);
-
-                            while($line_row = mysqli_fetch_assoc($line_result)){
-                                echo"['".$line_row['week']."',".$line_row['num_crimes']."],";
-                            }
-                            ?>
-                        ]);
-
-                        var options = {
-                            title: 'Yearly Crime Trend',
-                            hAxis: {title: 'Week', titleTextStyle: {color: '#333'}},
-                            vAxis: {minValue: 0},
-                            legend: {position: 'none'}
-                        };
-
-                        var chart = new google.charts.Line(document.getElementById('linechart_week'));
-                        
-                        chart.draw(data, options);
-                    }
-
-                </script>
-
-                <div class="charts-card">
-                    <h2 class="charts-title" style="margin-bottom: 20px;">Monthly Crime Trend</h2>
-                    <div id="linechart_month" style="width: 430px;height: 350px;"></div>
-                </div>
-                <script text="text/javascript">
-                    google.charts.load('current', {'packages':['Line']});
-                    google.charts.setOnLoadCallback(drawChart);
-
-                    function drawChart() {
-                        var data = google.visualization.arrayToDataTable([
-                            ['Month', 'Crimes Count'],
-                            <?php
-                            $line_sql = "SELECT MONTH(date_reported) as month, COUNT(*) as num_crimes FROM cases GROUP BY MONTH(date_reported)";
-                            $line_result = mysqli_query($conn, $line_sql);
-
-                            while($line_row = mysqli_fetch_assoc($line_result)){
-                                echo"['".$line_row['month']."',".$line_row['num_crimes']."],";
-                            }
-                            ?>
-                        ]);
-
-                        var options = {
-                            title: 'Yearly Crime Trend',
-                            hAxis: {title: 'Month', titleTextStyle: {color: '#333'}},
-                            vAxis: {minValue: 0},
-                            legend: {position: 'none'}
-                        };
-
-                        var chart = new google.charts.Line(document.getElementById('linechart_month'));
-                        
-                        chart.draw(data, options);
-                    }
-
-                </script>
-
-                <div class="charts-card">
-                    <h2 class="charts-title" style="margin-bottom: 20px;">Yearly Crime Trend</h2>
-                    <div id="linechart_year" style="width: 430px;height: 350px;"></div>
-                </div>
-                <script text="text/javascript">
-                    google.charts.load('current', {'packages':['Line']});
-                    google.charts.setOnLoadCallback(drawChart);
-
-                    function drawChart() {
-                        var data = google.visualization.arrayToDataTable([
-                            ['Year', 'Crimes Count'],
-                            <?php
-                            $line_sql = "SELECT YEAR(date_reported) as year, COUNT(*) as num_crimes FROM cases GROUP BY YEAR(date_reported)";
-                            $line_result = mysqli_query($conn, $line_sql);
-
-                            while($line_row = mysqli_fetch_assoc($line_result)){
-                                echo"['".$line_row['year']."',".$line_row['num_crimes']."],";
-                            }
-                            ?>
-                        ]);
-
-                        var options = {
-                            title: 'Yearly Crime Trend',
-                            hAxis: {title: 'Year', titleTextStyle: {color: '#333'}},
-                            vAxis: {minValue: 0},
-                            legend: {position: 'none'}
-                        };
-
-                        var chart = new google.charts.Line(document.getElementById('linechart_year'));
-                        
-                        chart.draw(data, options);
-                    }
-
                 </script>
 
                 <div class="charts-card">
@@ -196,14 +105,14 @@ include('adminmenu.php');
                 <div class="charts-card">
                   <h2 class="charts-title">Complaints based on gender</h2>
                   <div id="columnchart2" style="width: 430px;height: 350px;"></div>
-               </div>
-               <script type="text/javascript">
+                </div>
+                <script type="text/javascript">
                   google.charts.load('current', {'packages':['corechart']});
                   google.charts.setOnLoadCallback(columnChart);
 
                   function columnChart(){
 
-                     var data = google.visualization.arrayToDataTable([
+                    var data = google.visualization.arrayToDataTable([
                         ['location', 'count'],
                         <?php
                         $chart_sql = "SELECT gender, COUNT(*) as count FROM complainants GROUP BY gender";
@@ -213,16 +122,16 @@ include('adminmenu.php');
                             echo"['".$chart_row['gender']."',".$chart_row['count']."],";
                         }
                         ?>
-                     ]);
+                    ]);
 
-                     var options = {
+                    var options = {
                         legend: {position: 'none'}
-                     };
+                    };
 
-                     var chart = new google.visualization.ColumnChart(document.getElementById('columnchart2'));
-                     chart.draw(data, options);
+                    var chart = new google.visualization.ColumnChart(document.getElementById('columnchart2'));
+                    chart.draw(data, options);
                   }
-               </script>
+                </script>
                
             </div>
         </div>
