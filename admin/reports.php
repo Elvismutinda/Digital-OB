@@ -161,6 +161,69 @@ include('adminmenu.php');
                     }
 
                 </script>
+
+                <div class="charts-card">
+                  <h2 class="charts-title">Cases Reported based on location</h2>
+                  <div id="columnchart1" style="width: 430px;height: 350px;"></div>
+               </div>
+               <script type="text/javascript">
+                  google.charts.load('current', {'packages':['corechart']});
+                  google.charts.setOnLoadCallback(columnChart1);
+
+                  function columnChart1(){
+
+                     var data = google.visualization.arrayToDataTable([
+                        ['location', 'count'],
+                        <?php
+                        $chart_sql = "SELECT location, COUNT(crime_type) as count FROM complainants GROUP BY location"; 
+                        $chart_result = mysqli_query($conn, $chart_sql);
+                           
+                        while($chart_row = mysqli_fetch_assoc($chart_result)){
+                           echo"['".$chart_row['location']."',".$chart_row['count']."],";
+                        }
+                        ?>
+                     ]);
+
+                     var options = {
+                        legend: {position: 'none'}
+                     };
+
+                     var chart = new google.visualization.ColumnChart(document.getElementById('columnchart1'));
+                     chart.draw(data, options);
+                  }
+               </script>
+
+                <div class="charts-card">
+                  <h2 class="charts-title">Complaints based on gender</h2>
+                  <div id="columnchart2" style="width: 430px;height: 350px;"></div>
+               </div>
+               <script type="text/javascript">
+                  google.charts.load('current', {'packages':['corechart']});
+                  google.charts.setOnLoadCallback(columnChart);
+
+                  function columnChart(){
+
+                     var data = google.visualization.arrayToDataTable([
+                        ['location', 'count'],
+                        <?php
+                        $chart_sql = "SELECT gender, COUNT(*) as count FROM complainants GROUP BY gender";
+                        $chart_result = mysqli_query($conn, $chart_sql);
+
+                        while($chart_row = mysqli_fetch_assoc($chart_result)){
+                            echo"['".$chart_row['gender']."',".$chart_row['count']."],";
+                        }
+                        ?>
+                     ]);
+
+                     var options = {
+                        legend: {position: 'none'}
+                     };
+
+                     var chart = new google.visualization.ColumnChart(document.getElementById('columnchart2'));
+                     chart.draw(data, options);
+                  }
+               </script>
+               
             </div>
         </div>
     </div>
