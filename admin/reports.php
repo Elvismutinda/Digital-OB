@@ -12,13 +12,24 @@ include('adminmenu.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital OB</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <style>
+    .report {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .report:hover {
+        color: #246dec;
+    }
+</style>
 </head>
 <body>
 <form action="" method="post">
     <div class="details dashboard">
         <div class="recentOrders dashboard">
             <div class="cardHeader">
-               <h2 style="margin-bottom: 20px;">Analytical Reports</h2>
+               <h2 style="margin-bottom: 20px;">Reports</h2>
                <a href="adminpage.php" class="btn">Return to Dashboard</a>
             </div>
             <div class="charts">
@@ -30,6 +41,7 @@ include('adminmenu.php');
                     <input type="date" id="end_date" name="end_date" value="<?php echo isset($_POST['end_date']) ? $_POST['end_date'] : ''; ?>">
                     <button type="submit" class="btn" name="generate_report" style="margin-top: 20px; margin-bottom: 20px;">Generate Report</button>
                     <div id="linechart" style="width: 430px;height: 350px;"></div>
+                    <button type="button" class="btn" onclick="printChart()">Print Report</button>
                 </div>
                 <?php
                 if (isset($_POST['generate_report'])) {
@@ -71,74 +83,57 @@ include('adminmenu.php');
                     }
                 </script>
 
+                <script text="text/javascript">
+                    function printChart() {
+                        // Get the selected start date and end date
+                        var startDate = document.getElementById('start_date').value;
+                        var endDate = document.getElementById('end_date').value;
+
+                        // Create a new window
+                        var printWindow = window.open('', '_blank');
+
+                        // Get the chart HTML content
+                        var chartHtml = document.getElementById('linechart').outerHTML;
+
+                        // Create a print-friendly page with the chart and date range
+                        var printContent = `
+                            <html>
+                                <head>
+                                    <title>Print Report</title>
+                                    <style>
+                                        .date-range {
+                                            margin-bottom: 10px;
+                                            font-weight: bold;
+                                        }
+                                    </style>
+                                </head>
+                                <body>
+                                    <div class="date-range">Date Range: ${startDate} - ${endDate}</div>
+                                    ${chartHtml}
+                                </body>
+                            </html>
+                        `;
+
+                        // Write the print-friendly content to the print window
+                        printWindow.document.open();
+                        printWindow.document.write(printContent);
+                        printWindow.document.close();
+
+                        // Print the chart in the new window
+                        printWindow.print();
+                        printWindow.close();
+                    }
+                </script>
+
                 <div class="charts-card">
-                    <h2 class="charts-title">More Reports</h2>
-                    <a href=""><h4>1. Cases Reported Based on Location</h4></a>
-                    <a href=""><h4>2. Complaints based on gender</h4></a>
+                    <h2 class="charts-title">More Reports (Click to view)</h2>
+                    <a class="report" href="reports1.php"><h4>1. Cases Reported Based on Location</h4></a>
+                    <a class="report" href="reports2.php"><h4>2. Complaints Based on Gender</h4></a>
+                    <a class="report" href="reports3.php"><h4>3. Number of Cases Reported by Each Station.</h4></a>
+                    <a class="report" href="reports4.php"><h4>4. Complaints based on gender</h4></a>
+                    <a class="report" href="reports5.php"><h4>5. Complaints based on gender</h4></a>
                     <div id="" style="width: 430px;height: 350px;"></div>
                 </div>
-
-                <div class="charts-card">
-                    <h2 class="charts-title">Cases Reported based on location</h2>
-                    <div id="columnchart1" style="width: 430px;height: 350px;"></div>
-                </div>
-                <script type="text/javascript">
-                    google.charts.load('current', {'packages':['corechart']});
-                    google.charts.setOnLoadCallback(columnChart1);
-
-                    function columnChart1(){
-
-                        var data = google.visualization.arrayToDataTable([
-                        ['location', 'count'],
-                        <?php
-                        $chart_sql = "SELECT location, COUNT(crime_type) as count FROM complainants GROUP BY location"; 
-                        $chart_result = mysqli_query($conn, $chart_sql);
-                           
-                        while($chart_row = mysqli_fetch_assoc($chart_result)){
-                           echo"['".$chart_row['location']."',".$chart_row['count']."],";
-                        }
-                        ?>
-                        ]);
-
-                        var options = {
-                            legend: {position: 'none'}
-                        };
-
-                        var chart = new google.visualization.ColumnChart(document.getElementById('columnchart1'));
-                        chart.draw(data, options);
-                    }
-                </script>
-
-                <div class="charts-card">
-                    <h2 class="charts-title">Complaints based on gender</h2>
-                    <div id="columnchart2" style="width: 430px;height: 350px;"></div>
-                </div>
-                <script type="text/javascript">
-                    google.charts.load('current', {'packages':['corechart']});
-                    google.charts.setOnLoadCallback(columnChart);
-
-                    function columnChart(){
-
-                    var data = google.visualization.arrayToDataTable([
-                        ['location', 'count'],
-                        <?php
-                        $chart_sql = "SELECT gender, COUNT(*) as count FROM complainants GROUP BY gender";
-                        $chart_result = mysqli_query($conn, $chart_sql);
-
-                        while($chart_row = mysqli_fetch_assoc($chart_result)){
-                            echo"['".$chart_row['gender']."',".$chart_row['count']."],";
-                        }
-                        ?>
-                        ]);
-
-                        var options = {
-                            legend: {position: 'none'}
-                        };
-
-                        var chart = new google.visualization.ColumnChart(document.getElementById('columnchart2'));
-                        chart.draw(data, options);
-                    }
-                </script>
                
             </div>
         </div>

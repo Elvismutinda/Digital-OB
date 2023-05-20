@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2023 at 11:30 AM
+-- Generation Time: May 20, 2023 at 11:24 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -46,17 +46,17 @@ CREATE TABLE `cases` (
 --
 
 INSERT INTO `cases` (`id`, `ob_number`, `crime_type`, `date_reported`, `recorded_by`, `station`, `statement`, `investigator`, `status`, `date_completed`, `report`) VALUES
-(1, '22/1/27/04/2023', 'Theft', '2021-04-27 11:46:24', 22001, 'Central Police Station', 'Victim was walking out of the supermarket and was attacked by thieves and stolen from.', 22006, 'Completed', '2023-04-29 21:59:14', 'The thieves were apprehended and jailed awaiting judicial trial.'),
-(2, '33/1/27/04/2023', 'Fraud', '2021-04-27 11:49:06', 33001, 'Kasarani Police Station', 'Victim received fraudulent emails requesting personal information.', 33008, 'Ongoing', NULL, ''),
-(3, '66/1/27/04/2023', 'Vandalism', '2022-04-27 11:51:01', 66002, 'Kilimani Police Station', 'Back window was broken and several items were stolen.', 66003, 'Ongoing', NULL, ''),
-(4, '11/1/27/04/2023', 'Burglary', '2023-04-27 11:53:00', 11002, 'Langata Police Station', 'A laptop was stolen from the victim\'s car.', 11003, 'Completed', '2023-05-12 11:57:55', 'After gathering information from nearby civilians in the area of the crime, 1 suspect was added to the case for investigation. Brian Mumo, the suspect was taken into questioning and was found to be guilty through surveillance footage.'),
+(1, '22/1/27/04/2023', 'Theft', '2021-04-27 11:46:24', 22001, 'Central Police Station', 'Victim was walking out of the supermarket and was attacked by thieves and stolen from.', 22006, 'Closed', '2023-04-29 21:59:14', 'The thieves were apprehended and jailed awaiting judicial trial.'),
+(2, '33/1/27/04/2021', 'Fraud', '2021-04-27 11:49:06', 33001, 'Kasarani Police Station', 'Victim received fraudulent emails requesting personal information.', 33008, 'Ongoing', NULL, ''),
+(3, '66/1/27/04/2022', 'Vandalism', '2022-04-27 11:51:01', 66002, 'Kilimani Police Station', 'Back window was broken and several items were stolen.', 66003, 'Ongoing', NULL, ''),
+(4, '11/1/27/04/2023', 'Burglary', '2023-04-27 11:53:00', 11002, 'Langata Police Station', 'A laptop was stolen from the victim\'s car.', 11003, 'Closed', '2023-05-12 11:57:55', 'After gathering information from nearby civilians in the area of the crime, 1 suspect was added to the case for investigation. Brian Mumo, the suspect was taken into questioning and was found to be guilty through surveillance footage.'),
 (5, '22/2/27/04/2023', 'Robbery', '2023-05-27 11:57:54', 22005, 'Central Police Station', 'Victim was robbed at knifepoint while withdrawing money from an ATM at Shell Petrol Station.', NULL, 'Ongoing', NULL, ''),
 (6, '33/2/27/04/2023', 'Theft', '2023-04-27 12:01:30', 33004, 'Kasarani Police Station', 'Victim\'s phone was stolen while leaving the mall.', NULL, 'Ongoing', NULL, ''),
 (7, '66/2/27/04/2023', 'Fraud', '2023-04-27 12:03:52', 66001, 'Kilimani Police Station', 'Victim received a fraudulent call from someone posing as a bank representative.', NULL, 'Ongoing', NULL, ''),
-(8, '101/1/27/04/2023', 'Defilement', '2023-04-27 12:05:32', 101001, 'Dandora Police Station', 'Victim was defiled by a man in a mask and left beaten.', NULL, 'Ongoing', NULL, ''),
+(8, '101/1/27/04/2022', 'Defilement', '2022-04-27 12:05:32', 101001, 'Dandora Police Station', 'Victim was defiled by a man in a mask and left beaten.', NULL, 'Ongoing', NULL, ''),
 (9, '22/3/27/04/2023', 'Vandalism', '2023-04-27 12:07:27', 22007, 'Central Police Station', 'Graffiti was found on the back side of the house.', NULL, 'Ongoing', NULL, ''),
 (10, '77/1/27/04/2023', 'Domestic Violence', '2023-04-27 12:09:02', 77001, 'Buruburu Police Station', 'Victim\'s husband came home drank and attacked the wife.', NULL, 'Ongoing', NULL, ''),
-(11, '11/2/27/04/2023', 'Assault', '2023-04-27 12:10:47', 11005, 'Langata Police Station', 'Victim was attacked while leaving her hostel to attend her morning class.', 11003, 'Ongoing', NULL, ''),
+(11, '11/2/27/04/2023', 'Assault', '2023-04-27 12:10:47', 11005, 'Langata Police Station', 'Victim was attacked while leaving her hostel to attend her morning class.', 11003, 'Closed', '2023-05-19 13:47:14', 'Test close case.'),
 (12, '22/4/27/04/2023', 'Fraud', '2023-04-27 12:13:03', 22001, 'Central Police Station', 'Victim was cheated by online fraudsters.', NULL, 'Ongoing', NULL, ''),
 (13, '33/3/27/04/2023', 'Road Accident', '2023-04-27 13:16:28', 33001, 'Kasarani Police Station', 'Victim was involved in a hit and run by a motorcycle driver.', NULL, 'Ongoing', NULL, ''),
 (14, '11/3/27/04/2023', 'Robbery', '2023-04-27 13:18:25', 11001, 'Langata Police Station', 'Unknown men in masks robbed the Chase bank and the clients in the bank at that time.', 11008, 'Ongoing', NULL, ''),
@@ -78,7 +78,8 @@ INSERT INTO `cases` (`id`, `ob_number`, `crime_type`, `date_reported`, `recorded
 (30, '44/1/02/05/2023', 'Vandalism', '2023-05-02 20:20:55', 44001, 'South B Police Station', 'House of victim was covered in several rolls of tissue paper.', NULL, 'Ongoing', NULL, ''),
 (31, '11/3/12/05/2023', 'Road Accident', '2023-05-12 09:36:46', 11001, 'Langata Police Station', 'The victim was driving on the highway and a red Toyota Harrier came speeding from the other side trying to overtake a lorry not knowing if the other lane of the road was clear leading to an accident.', NULL, 'Ongoing', NULL, ''),
 (32, '11/4/13/05/2023', 'Domestic Violence', '2023-05-13 10:31:36', 11001, 'Langata Police Station', 'Husband of the victim found messages on the victim\'s phone that implied she was cheating hence causing problems in the house.', NULL, 'Ongoing', NULL, ''),
-(33, '505/1/17/05/2023', 'Rape', '2023-05-17 09:00:57', 505001, 'Karen Police Station', 'Victim was minding his own business and was brutally raped by an enormous man with the physique of goliath himself.', 505004, 'Ongoing', NULL, '');
+(33, '505/1/17/05/2023', 'Rape', '2023-05-17 09:00:57', 505001, 'Karen Police Station', 'Victim was minding his own business and was brutally raped by an enormous man with the physique of goliath himself.', 505004, 'Ongoing', NULL, ''),
+(34, '11/5/19/05/2023', 'Road Accident', '2023-05-19 09:25:37', 11001, 'Langata Police Station', 'Victim was involved in a road accident.', 11008, 'Ongoing', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -107,14 +108,14 @@ CREATE TABLE `complainants` (
 --
 
 INSERT INTO `complainants` (`id`, `ob_number`, `comp_name`, `tel`, `occupation`, `age`, `address`, `region`, `gender`, `crime_type`, `location`, `station_reported`, `date_added`) VALUES
-(1, '22/1/27/04/2023', 'Jane Smith', '071235555', 'Teacher', 35, '123 Main St', 'Nairobi', 'Female', 'Theft', 'Supermarket', 'Central Police Station', '2023-04-27 11:45:24'),
-(2, '33/1/27/04/2023', 'John Doe', '071234567', 'Nurse', 28, '456 Elm St', 'Nairobi', 'Male', 'Fraud', 'Bank', 'Kasarani Police Station', '2023-04-27 11:48:08'),
-(3, '66/1/27/04/2023', 'Bob Johnson', '079876543', 'Engineer', 42, '111 Maple St', 'Nairobi', 'Male', 'Vandalism', 'House', 'Kilimani Police Station', '2023-04-27 11:50:28'),
+(1, '22/1/27/04/2023', 'Jane Smith', '071235555', 'Teacher', 35, '123 Main St', 'Nairobi', 'Female', 'Theft', 'Supermarket', 'Central Police Station', '2021-04-27 11:45:24'),
+(2, '33/1/27/04/2021', 'John Doe', '071234567', 'Nurse', 28, '456 Elm St', 'Nairobi', 'Male', 'Fraud', 'Bank', 'Kasarani Police Station', '2023-04-27 11:48:08'),
+(3, '66/1/27/04/2022', 'Bob Johnson', '079876543', 'Engineer', 42, '111 Maple St', 'Nairobi', 'Male', 'Vandalism', 'House', 'Kilimani Police Station', '2022-04-27 11:50:28'),
 (4, '11/1/27/04/2023', 'Lisa Brown', '075551111', 'Lawyer', 50, '789 Oak St', 'Nairobi', 'Female', 'Burglary', 'Park', 'Langata Police Station', '2023-04-27 11:52:30'),
 (5, '22/2/27/04/2023', 'Mike Wilson', '074443333', 'Accountant', 37, '222 Pine St', 'Nairobi', 'Male', 'Robbery', 'Gas Station', 'Central Police Station', '2023-04-27 11:57:14'),
 (6, '33/2/27/04/2023', 'Julie Davis', '072221111', 'Doctor', 31, '333 Cedar St', 'Nairobi', 'Female', 'Theft', 'Mall', 'Kasarani Police Station', '2023-04-27 11:59:43'),
 (7, '66/2/27/04/2023', 'Tom Smith', '077778888', 'Teacher', 54, '444 Elm st', 'Nairobi', 'Male', 'Fraud', 'Store', 'Kilimani Police Station', '2023-04-27 12:02:53'),
-(8, '101/1/27/04/2023', 'Emily Jackson', '076665555', 'Nurse', 25, '555 Oak St', 'Nairobi', 'Female', 'Defilement', 'Gym', 'Dandora Police Station', '2023-04-27 12:05:12'),
+(8, '101/1/27/04/2022', 'Emily Jackson', '076665555', 'Nurse', 25, '555 Oak St', 'Nairobi', 'Female', 'Defilement', 'Gym', 'Dandora Police Station', '2022-04-27 12:05:12'),
 (9, '22/3/27/04/2023', 'Steve Brown', '071112222', 'Engineer', 45, '666 Maple St', 'Nairobi', 'Male', 'Vandalism', 'House', 'Central Police Station', '2023-04-27 12:06:55'),
 (10, '77/1/27/04/2023', 'Jennifer Lee', '073332222', 'Lawyer', 38, '777 Pine St', 'Nairobi', 'Female', 'Domestic Violence', 'House', 'Buruburu Police Station', '2023-04-27 12:08:44'),
 (11, '11/2/27/04/2023', 'Cindy Johnson', '077773333', 'Student', 21, '999 Elm St', 'Nairobi', 'Female', 'Assault', 'Hostels', 'Langata Police Station', '2023-04-27 12:10:23'),
@@ -139,7 +140,8 @@ INSERT INTO `complainants` (`id`, `ob_number`, `comp_name`, `tel`, `occupation`,
 (31, '44/1/02/05/2023', 'Benard Muuo', '078826262', 'Teacher', 39, '777 Pine St', 'Nairobi', 'Male', 'Vandalism', 'House', 'South B Police Station', '2023-05-02 20:19:24'),
 (32, '11/3/12/05/2023', 'Shemeji Shemester', '0712928199', 'Student', 20, '213 Maple St', 'Nairobi', 'Male', 'Road Accident', 'Highway', 'Langata Police Station', '2023-05-12 09:35:29'),
 (33, '11/4/13/05/2023', 'Mariah Carey', '078883131', 'Singer', 43, '777 Pine St', 'Nairobi', 'Male', 'Domestic Violence', 'House', 'Langata Police Station', '2023-05-13 10:30:42'),
-(34, '505/1/17/05/2023', 'Adrian Munene', '072828414', 'Student', 20, '122 Maple St', 'Nairobi', 'Male', 'Rape', 'Club', 'Karen Police Station', '2023-05-17 09:00:03');
+(34, '505/1/17/05/2023', 'Adrian Munene', '072828414', 'Student', 20, '122 Maple St', 'Nairobi', 'Male', 'Rape', 'Club', 'Karen Police Station', '2023-05-17 09:00:03'),
+(35, '11/5/19/05/2023', 'ewf', '23414', 'student', 21, '123 ff', 'Nairobi', 'Male', 'Road Accident', 'Street', 'Langata Police Station', '2023-05-19 09:25:22');
 
 -- --------------------------------------------------------
 
@@ -238,11 +240,11 @@ CREATE TABLE `suspects` (
 --
 
 INSERT INTO `suspects` (`id`, `station`, `ob_number`, `crime_suspected`, `name`, `national_id`, `dob`, `address`, `phone_num`, `gender`, `date_added`) VALUES
-(1, 'Langata Police Station' , '11/4/27/04/2023', 'Theft', 'Ibrahim Rashid', 3998231, '1998-03-16', '981 Lee St', 7282111, 'Male', '2023-05-02 14:22:27'),
-(2, 'Langata Police Station' , '11/4/27/04/2023', 'Theft', 'Abdi Manish', 131412, '1987-09-21', '872 Lee St', 78481212, 'Male', '2023-05-02 14:43:04'),
-(3, 'Langata Police Station' , '11/1/27/04/2023', 'Burglary', 'Brian Mumo', 892773, '2000-06-13', '811 Maple St', 76661123, 'Male', '2023-05-02 14:44:40'),
-(4, 'Langata Police Station' , '11/2/02/05/2023', 'Rape', 'Ojing Ochieng', 6235222, '1982-10-18', '772 Pine St', 78828121, 'Male', '2023-05-02 15:05:40'),
-(5, 'Karen Police Station' , '505/1/17/05/2023', 'Rape', 'Dennis Ochieng', 872332, '1980-06-19', '662 Maple St', 27418741, 'Male', '2023-05-17 09:15:10');
+(1, 'Langata Police Station', '11/4/27/04/2023', 'Theft', 'Ibrahim Rashid', 3998231, '1998-03-16', '981 Lee St', 7282111, 'Male', '2023-05-02 14:22:27'),
+(2, 'Langata Police Station', '11/4/27/04/2023', 'Theft', 'Abdi Manish', 131412, '1987-09-21', '872 Lee St', 78481212, 'Male', '2023-05-02 14:43:04'),
+(3, 'Langata Police Station', '11/1/27/04/2023', 'Burglary', 'Brian Mumo', 892773, '2000-06-13', '811 Maple St', 76661123, 'Male', '2023-05-02 14:44:40'),
+(4, 'Langata Police Station', '11/2/02/05/2023', 'Rape', 'Ojing Ochieng', 6235222, '1982-10-18', '772 Pine St', 78828121, 'Male', '2023-05-02 15:05:40'),
+(5, 'Karen Police Station', '505/1/17/05/2023', 'Rape', 'Dennis Ochieng', 872332, '1980-06-19', '662 Maple St', 27418741, 'Male', '2023-05-17 09:15:10');
 
 -- --------------------------------------------------------
 
@@ -295,6 +297,7 @@ INSERT INTO `users` (`staff_id`, `name`, `station`, `rank`, `gender`, `password`
 (11007, 'Jacob Martin', 'Langata Police Station', 'Sergeant', 'Male', '81dc9bdb52d04dc20036dbd8313ed055', 'Police', '2023-04-27 08:24:35'),
 (11008, 'Ava Hernandez', 'Langata Police Station', 'Corporal', 'Female', '81dc9bdb52d04dc20036dbd8313ed055', 'Investigating Officer', '2023-04-27 08:24:35'),
 (11009, 'Manu Muuo', 'Langata Police Station', 'Constable', 'Male', '81dc9bdb52d04dc20036dbd8313ed055', 'Investigating Officer', '2023-05-12 20:12:47'),
+(11010, 'Manu Muuo', 'Langata Police Station', 'Sergeant', 'Male', '81dc9bdb52d04dc20036dbd8313ed055', 'Police', '2023-05-20 21:05:50'),
 (22001, 'Paul Brown', 'Central Police Station', 'Sergeant', 'Male', '81dc9bdb52d04dc20036dbd8313ed055', 'Police', '2023-04-27 08:24:35'),
 (22002, 'Maria Hernandez', 'Central Police Station', 'Senior Sergeant', 'Female', '81dc9bdb52d04dc20036dbd8313ed055', 'Police', '2023-04-27 08:24:35'),
 (22003, 'Kevin Lee', 'Central Police Station', 'Senior Inspector', 'Male', '81dc9bdb52d04dc20036dbd8313ed055', 'Investigating Officer', '2023-04-27 08:24:35'),
@@ -499,13 +502,13 @@ ALTER TABLE `user_type`
 -- AUTO_INCREMENT for table `cases`
 --
 ALTER TABLE `cases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `complainants`
 --
 ALTER TABLE `complainants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `crimes`

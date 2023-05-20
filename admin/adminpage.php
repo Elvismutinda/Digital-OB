@@ -130,35 +130,39 @@ include('adminmenu.php');
                </script>
 
                <div class="charts-card">
-                  <h2 class="charts-title">Cases Reported per Station</h2>
-                  <div id="columnchart" style="width: 430px;height: 350px;"></div>
-               </div>
-               <script type="text/javascript">
-                  google.charts.load('current', {'packages':['corechart']});
-                  google.charts.setOnLoadCallback(columnChart);
+                  <h2 class="charts-title">Cases Ongoing for a long time</h2>
+                  <?php
+                  $query = "SELECT station, ob_number, crime_type, date_reported FROM cases WHERE status = 'Ongoing'";
+                  $result = mysqli_query($conn, $query);
 
-                  function columnChart(){
-
-                     var data = google.visualization.arrayToDataTable([
-                        ['station', 'count'],
-                        <?php
-                        $chart_sql = "SELECT station, COUNT(crime_type) as count FROM cases GROUP BY station"; 
-                        $chart_result = mysqli_query($conn, $chart_sql);
-                           
-                        while($chart_row = mysqli_fetch_assoc($chart_result)){
-                           echo"['".$chart_row['station']."',".$chart_row['count']."],";
-                        }
-                        ?>
-                     ]);
-
-                     var options = {
-                        legend: {position: 'none'}
-                     };
-
-                     var chart = new google.visualization.ColumnChart(document.getElementById('columnchart'));
-                     chart.draw(data, options);
+                  if (mysqli_num_rows($result) > 0) {
+                     while ($row = mysqli_fetch_assoc($result)) {
+                        $station = $row['station'];
+                        $ob_number = $row['ob_number'];
+                        $crime_type = $row['crime_type'];
+                        $startDate = $row['date_reported'];
+                        
+                        // Calculate the duration
+                        $startDate = new DateTime($startDate);
+                        $now = new DateTime();
+                        $duration = $now->diff($startDate);
+                        
+                        if ($duration->days > 30) {
+                           echo "Station: $station<br>";
+                           echo "OB Number: $ob_number<br>";
+                           echo "Nature of Case: $crime_type<br>";
+                           echo "Pending for: " . $duration->format('%a days') . "<br><br>";
+                     }
+                     }
+                  } else {
+                     echo "No long ongoing cases found.";
                   }
-               </script>
+
+                  mysqli_close($conn);
+
+                  ?>
+
+               </div>
 
             </div>
          </div>
