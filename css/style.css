@@ -476,3 +476,7 @@ a h4:hover{
 .error-msg{
   background-color: red;
 }
+
+a{
+  text-decoration: none;
+}
