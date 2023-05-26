@@ -131,11 +131,14 @@ include('adminmenu.php');
 
                <div class="charts-card">
                   <h2 class="charts-title">Cases Ongoing for a long time</h2>
+                  <div id="data_container">
                   <?php
                   $query = "SELECT station, ob_number, crime_type, date_reported FROM cases WHERE status = 'Ongoing'";
                   $result = mysqli_query($conn, $query);
 
                   if (mysqli_num_rows($result) > 0) {
+                     $data = array();
+
                      while ($row = mysqli_fetch_assoc($result)) {
                         $station = $row['station'];
                         $ob_number = $row['ob_number'];
@@ -148,12 +151,41 @@ include('adminmenu.php');
                         $duration = $now->diff($startDate);
                         
                         if ($duration->days > 30) {
-                           echo "Station: $station<br>";
-                           echo "OB Number: $ob_number<br>";
-                           echo "Nature of Case: $crime_type<br>";
-                           echo "Pending for: " . $duration->format('%a days') . "<br><br>";
+                           $data[] = array(
+                           'station' => $station,
+                           'ob_number' => $ob_number,
+                           'crime_type' => $crime_type,
+                           'duration' => $duration->format('%a days')
+                           );
+                        }
                      }
+
+                     $itemsPerPage = 3; // Number of items to display
+                     $page = isset($_GET['page']) ? $_GET['page'] : 1; // Get the current page number
+                     $offset = ($page - 1) * $itemsPerPage; // Calculate the offset for the query
+
+                     $totalPages = ceil(count($data) / $itemsPerPage); // Total no. of pages
+
+                     $currentPageData = array_slice($data, $offset, $itemsPerPage); // Data for current page
+
+                     foreach($currentPageData as $item){
+                        echo "<div class='data-item'>";
+                        echo "Station: " . $item['station'] . "<br>";
+                        echo "OB Number: " . $item['ob_number'] . "<br>";
+                        echo "Nature of Case: " . $item['crime_type'] . "<br>";
+                        echo "Pending for: " . $item['duration'] . "<br><br>";
+                        echo "</div>";
                      }
+
+                     echo "<div class='pagination'>";
+                     if($page > 1){
+                        echo "<a href='?page=" . ($page - 1) . "'>View Previous</a>";
+                     }
+                     if($page < $totalPages){
+                        echo "<a href='?page=" . ($page + 1) . "' style='margin-left:20px;'>View Next</a>";
+                     }
+                     echo "</div>";
+                     
                   } else {
                      echo "No long ongoing cases found.";
                   }
