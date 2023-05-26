@@ -133,6 +133,10 @@ include('adminmenu.php');
                     <a class="report" href="reports4.php"><h4>4. Number of Cases Reported by Crime Type.</h4></a>
                     <a class="report" href="reports5.php"><h4>5. Status Proportionaliy of Cases.</h4></a>
                     <a class="report" href="reports6.php"><h4>6. Average Time Taken to Solve Cases.</h4></a>
+                    <a class="report" href="reports7.php"><h4>7. Distribution of Suspects by Gender.</h4></a>
+                    <a class="report" href="reports8.php"><h4>8. Distribution of Suspects by Crime Suspected.</h4></a>
+                    <a class="report" href="reports9.php"><h4>9. Distribution of Suspects by Age Group.</h4></a>
+                    <a class="report" href="reports10.php"><h4>10. Distribution of Suspects by Gender and Crime Suspected.</h4></a>
                     <!-- <div id="" style="width: 430px;height: 350px;"></div> -->
                 </div>
                

@@ -23,7 +23,7 @@ include('adminmenu.php');
             </div>
             <div class="charts">
                 <div class="charts-card">
-                    <div id="columnchart1" style="width: 430px;height: 350px;"></div>
+                    <div id="columnchart" style="width: 430px;height: 350px;"></div>
                 </div>
                 <script type="text/javascript">
                     google.charts.load('current', {'packages':['corechart']});
@@ -49,7 +49,7 @@ include('adminmenu.php');
                             vAxis: {title: 'Crime Count'}
                         };
 
-                        var chart = new google.visualization.ColumnChart(document.getElementById('columnchart1'));
+                        var chart = new google.visualization.ColumnChart(document.getElementById('columnchart'));
                         chart.draw(data, options);
                     }
                 </script>

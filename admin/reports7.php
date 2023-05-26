@@ -18,7 +18,7 @@ include('adminmenu.php');
     <div class="details dashboard">
         <div class="recentOrders dashboard">
             <div class="cardHeader">
-               <h2 style="margin-bottom: 20px;">Complaints based on gender</h2>
+               <h2 style="margin-bottom: 20px;">Distribution of Suspects by Gender</h2>
                <a href="reports.php" class="btn">Go Back</a>
             </div>
             <div class="charts">
@@ -26,33 +26,32 @@ include('adminmenu.php');
                     <div id="columnchart" style="width: 430px;height: 350px;"></div>
                 </div>
                 <script type="text/javascript">
-                    google.charts.load('current', {'packages':['corechart']});
-                    google.charts.setOnLoadCallback(columnChart);
+                google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(columnChart);
 
-                    function columnChart(){
-
+                function columnChart(){
                     var data = google.visualization.arrayToDataTable([
-                        ['location', 'count'],
+                        ['Gender', 'No. of Suspects'],
                         <?php
-                        $chart_sql = "SELECT gender, COUNT(*) as count FROM complainants GROUP BY gender";
+                        $chart_sql = "SELECT gender, COUNT(*) AS count FROM suspects GROUP BY gender";
                         $chart_result = mysqli_query($conn, $chart_sql);
 
                         while($chart_row = mysqli_fetch_assoc($chart_result)){
-                            echo"['".$chart_row['gender']."',".$chart_row['count']."],";
+                            echo "['".$chart_row['gender']."', ".$chart_row['count']."],";
                         }
                         ?>
-                        ]);
+                    ]);
 
-                        var options = {
-                            legend: {position: 'none'},
-                            hAxis: {title: 'Gender'},
-                            vAxis: {title: 'Cases Reported'}
-                        };
+                    var options = {
+                        legend: {position: 'none'},
+                        hAxis: {title: 'Suspect Gender'},
+                        vAxis: {title: 'Number of Crimes Suspected'}
+                    };
 
-                        var chart = new google.visualization.ColumnChart(document.getElementById('columnchart'));
-                        chart.draw(data, options);
-                    }
-                </script>
+                    var chart = new google.visualization.ColumnChart(document.getElementById('columnchart'));
+                    chart.draw(data, options);
+                }
+            </script>
                
             </div>
         </div>

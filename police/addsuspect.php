@@ -19,12 +19,13 @@ if(isset($_POST['submit'])){
     $address = $_POST['address'];
     $phone_num = $_POST['phone_num'];
     $gender = $_POST['gender'];
+    $station = $_POST['station'];
  
-    $insert = "INSERT INTO suspects(ob_number, crime_suspected, name, national_id, dob, address, phone_num, gender) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+    $insert = "INSERT INTO suspects(ob_number, crime_suspected, name, national_id, dob, address, phone_num, gender, station) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
     $prepareStmt = mysqli_stmt_prepare($stmt,$insert);
     if ($prepareStmt) {
-       mysqli_stmt_bind_param($stmt,"sssissis", $ob_number, $crime_suspected, $name, $national_id, $dob, $address, $phone_num, $gender);
+       mysqli_stmt_bind_param($stmt,"sssississ", $ob_number, $crime_suspected, $name, $national_id, $dob, $address, $phone_num, $gender, $station);
        mysqli_stmt_execute($stmt);
 
       $audit_trail_file = fopen('../controller/audit_trail.log', 'a');
@@ -110,6 +111,7 @@ if(isset($_POST['submit'])){
                      <option value="Female">Female</option>
                   </select>
                </div>
+               <input type="hidden" name="station" readonly="" value="<?php echo $station ?>" required>
             </div>
             <div class="form-btn">
                <button type="submit" name="submit">Save and Continue</button>
