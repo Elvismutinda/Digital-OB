@@ -137,7 +137,7 @@ include('adminmenu.php');
                     <a class="report" href="reports8.php"><h4>8. Distribution of Suspects by Crime Suspected.</h4></a>
                     <a class="report" href="reports9.php"><h4>9. Distribution of Suspects by Age Group.</h4></a>
                     <a class="report" href="reports10.php"><h4>10. Distribution of Suspects by Gender and Crime Suspected.</h4></a>
-                    <!-- <div id="" style="width: 430px;height: 350px;"></div> -->
+                    <a class="report" href="reports11.php"><h4>11. Investigators Who Have Handled the Most Cases.</h4></a>
                 </div>
                
             </div>
