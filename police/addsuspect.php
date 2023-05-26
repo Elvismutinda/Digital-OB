@@ -120,7 +120,7 @@ if(isset($_POST['submit'])){
       </div>
    </form>
 
-   <!-- Script to get the crime type in regard to the ob_number selected --> 
+   <!-- Script to get the crime type with regard to the ob_number selected --> 
 
    <script>
 
