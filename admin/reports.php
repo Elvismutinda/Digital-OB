@@ -129,8 +129,8 @@ include('adminmenu.php');
                     <h2 class="charts-title">More Reports (Click to view)</h2>
                     <a class="report" href="reports1.php"><h4>1. Cases Reported Based on Location.</h4></a>
                     <a class="report" href="reports2.php"><h4>2. Complaints Based on Gender.</h4></a>
-                    <a class="report" href="reports3.php"><h4>3. Number of Cases Reported by Each Station.</h4></a>
-                    <a class="report" href="reports4.php"><h4>4. Number of Cases Reported by Crime Type.</h4></a>
+                    <a class="report" href="reports3.php"><h4>3. Distribution of Cases Reported by Each Station.</h4></a>
+                    <a class="report" href="reports4.php"><h4>4. Distribution of Cases Reported by Crime Type.</h4></a>
                     <a class="report" href="reports5.php"><h4>5. Status Proportionaliy of Cases.</h4></a>
                     <a class="report" href="reports6.php"><h4>6. Average Time Taken to Solve Cases.</h4></a>
                     <a class="report" href="reports7.php"><h4>7. Distribution of Suspects by Gender.</h4></a>
