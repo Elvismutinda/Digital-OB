@@ -18,38 +18,35 @@ include('adminmenu.php');
     <div class="details dashboard">
         <div class="recentOrders dashboard">
             <div class="cardHeader">
-               <h2 style="margin-bottom: 20px;">Cases Reported based on location</h2>
+               <h2 style="margin-bottom: 20px;">Status Proportionaliy of Cases.</h2>
                <a href="reports.php" class="btn">Go Back</a>
             </div>
             <div class="charts">
                 <div class="charts-card">
-                    <div id="columnchart1" style="width: 430px;height: 350px;"></div>
+                    <div id="piechart" style="width: 430px;height: 350px;"></div>
                 </div>
                 <script type="text/javascript">
                     google.charts.load('current', {'packages':['corechart']});
-                    google.charts.setOnLoadCallback(columnChart1);
+                    google.charts.setOnLoadCallback(pieChart);
 
-                    function columnChart1(){
-
+                    function pieChart(){
                         var data = google.visualization.arrayToDataTable([
-                        ['location', 'count'],
-                        <?php
-                        $chart_sql = "SELECT location, COUNT(crime_type) as count FROM complainants GROUP BY location"; 
-                        $chart_result = mysqli_query($conn, $chart_sql);
-                           
-                        while($chart_row = mysqli_fetch_assoc($chart_result)){
-                           echo"['".$chart_row['location']."',".$chart_row['count']."],";
-                        }
-                        ?>
+                            ['Status', 'Number of Cases'],
+                            <?php
+                            $chart_sql = "SELECT status, COUNT(*) AS count FROM cases GROUP BY status";
+                            $chart_result = mysqli_query($conn, $chart_sql);
+
+                            while($chart_row = mysqli_fetch_assoc($chart_result)){
+                                echo "['".$chart_row['status']."', ".$chart_row['count']."],";
+                            }
+                            ?>
                         ]);
 
                         var options = {
-                            legend: {position: 'none'},
-                            hAxis: {title: 'Location'},
-                            vAxis: {title: 'Crime Count'}
+                            legend: {position: 'right'}
                         };
 
-                        var chart = new google.visualization.ColumnChart(document.getElementById('columnchart1'));
+                        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
                         chart.draw(data, options);
                     }
                 </script>

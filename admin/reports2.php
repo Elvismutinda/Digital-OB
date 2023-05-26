@@ -44,7 +44,9 @@ include('adminmenu.php');
                         ]);
 
                         var options = {
-                            legend: {position: 'none'}
+                            legend: {position: 'none'},
+                            hAxis: {title: 'Gender'},
+                            vAxis: {title: 'Cases Reported'}
                         };
 
                         var chart = new google.visualization.ColumnChart(document.getElementById('columnchart2'));

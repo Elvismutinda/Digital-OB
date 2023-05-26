@@ -18,38 +18,37 @@ include('adminmenu.php');
     <div class="details dashboard">
         <div class="recentOrders dashboard">
             <div class="cardHeader">
-               <h2 style="margin-bottom: 20px;">Cases Reported based on location</h2>
+               <h2 style="margin-bottom: 20px;">Average Time Taken to Solve Cases.</h2>
                <a href="reports.php" class="btn">Go Back</a>
             </div>
             <div class="charts">
                 <div class="charts-card">
-                    <div id="columnchart1" style="width: 430px;height: 350px;"></div>
+                    <div id="columnchart" style="width: 430px;height: 350px;"></div>
                 </div>
                 <script type="text/javascript">
                     google.charts.load('current', {'packages':['corechart']});
-                    google.charts.setOnLoadCallback(columnChart1);
+                    google.charts.setOnLoadCallback(columnChart);
 
-                    function columnChart1(){
-
+                    function columnChart(){
                         var data = google.visualization.arrayToDataTable([
-                        ['location', 'count'],
-                        <?php
-                        $chart_sql = "SELECT location, COUNT(crime_type) as count FROM complainants GROUP BY location"; 
-                        $chart_result = mysqli_query($conn, $chart_sql);
-                           
-                        while($chart_row = mysqli_fetch_assoc($chart_result)){
-                           echo"['".$chart_row['location']."',".$chart_row['count']."],";
-                        }
-                        ?>
+                            ['Crime Type', 'Avg Time'],
+                            <?php
+                            $chart_sql = "SELECT crime_type, AVG(TIMESTAMPDIFF(DAY, date_reported, date_completed)) AS avg_time_taken FROM cases WHERE date_completed IS NOT NULL GROUP BY crime_type";
+                            $chart_result = mysqli_query($conn, $chart_sql);
+
+                            while($chart_row = mysqli_fetch_assoc($chart_result)){
+                                echo "['".$chart_row['crime_type']."', ".$chart_row['avg_time_taken']."],";
+                            }
+                            ?>
                         ]);
 
                         var options = {
                             legend: {position: 'none'},
-                            hAxis: {title: 'Location'},
-                            vAxis: {title: 'Crime Count'}
+                            hAxis: {title: 'Crime Type'},
+                            vAxis: {title: 'Average Time Taken (Days)'}
                         };
 
-                        var chart = new google.visualization.ColumnChart(document.getElementById('columnchart1'));
+                        var chart = new google.visualization.ColumnChart(document.getElementById('columnchart'));
                         chart.draw(data, options);
                     }
                 </script>

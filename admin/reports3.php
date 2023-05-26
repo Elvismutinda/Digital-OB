@@ -18,12 +18,11 @@ include('adminmenu.php');
     <div class="details dashboard">
         <div class="recentOrders dashboard">
             <div class="cardHeader">
-               <h2 style="margin-bottom: 20px;">Cases Reported based on location</h2>
+               <h2 style="margin-bottom: 20px;">Number of Cases Reported by Each Station.</h2>
                <a href="reports.php" class="btn">Go Back</a>
             </div>
             <div class="charts">
                 <div class="charts-card">
-                    <h2 class="charts-title">Cases Reported per Station</h2>
                     <div id="columnchart" style="width: 430px;height: 350px;"></div>
                 </div>
                 <script type="text/javascript">
@@ -45,7 +44,9 @@ include('adminmenu.php');
                      ]);
 
                      var options = {
-                        legend: {position: 'none'}
+                        legend: {position: 'none'},
+                        hAxis: {title: 'Station'},
+                        vAxis: {title: 'Crime Count'}
                      };
 
                      var chart = new google.visualization.ColumnChart(document.getElementById('columnchart'));
