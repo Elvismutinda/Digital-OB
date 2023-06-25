@@ -6,32 +6,4 @@ The system is coded in CORE PHP and connected to MariaDB dataabase that stores t
 
 ## How to get a Live Demo.
 
-Download XAMPP from any browser and after starting Apache and MySQL in XAMPP, follow the following steps:
-
-### `Step 1:`
-
-Download the Code and unzip it.
-
-### `Step 2:`
-
-Copy the main project folder and paste it in xampp/htdocs
-
-### `Step 3:`
-
-Open Browser and go to URL: [http://localhost/phpmyadmin/](http://localhost/phpmyadmin/)
-
-### `Step 4:`
-
-Click on database tab and create database called digital_ob.
-
-### `Step 5:`
-
-Click on the import tab in the horizontal navbar and select "digital_ob.sql" file located in the "database" folder.
-
-### `Step 6:`
-
-Click on go at the bottom of the page.
-
-After creating database go to URL: [http://localhost/digital_ob/](http://localhost/digital_ob/)
-
-In my case digital_ob is my folder name. Replace it with whatever name you have given your project folder.
+Click the link to get a live demo -> [Elvis' Digital OB](https://digital-ob.000webhostapp.com/index.php)
