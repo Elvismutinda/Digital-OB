@@ -1,10 +1,9 @@
 <?php
 
+session_start();
 include('config/connection.php');
 $date_time = date('Y-m-d H:i:s');
 
-session_start();
-include('header.php');
 
 if(isset($_POST['submit'])){
 
@@ -99,23 +98,28 @@ if(isset($_POST['submit'])){
    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-<div class="container">
-   <form action="" method="post">
-      <header>Please Login Here</header>
-      <div class="login-content">
-         <div class="login-box">
-            <label for="staff_id"><b>Staff ID</b></label>
-            <input type="text" name="staff_id" class="form-control" placeholder="Enter Your Staff ID" autocomplete="off" required>
-         </div>
-         <div class="login-box">
-            <label for="password"><b>Password</b></label>
-            <input type="password" name="password" class="form-control" placeholder="Enter Your Password" autocomplete="off" required>
-         </div>
-            <button type="submit" name="submit">Login</button>
-      </div>
-   </form>
-
-</div>
+    <div class="header-content">
+        <div class="background">
+            <h3 style="text-align:center;padding: 10px;color: white;">DIGITAL OB MANAGEMENT SYSTEM</h3>
+            <img src="images/kenyapolice-logo.png" alt="" width="250" height="150" style="margin-top: -40px;">
+        </div>
+    </div>
+    <div class="container">
+       <form action="" method="post">
+          <header>Please Login Here</header>
+          <div class="login-content">
+             <div class="login-box">
+                <label for="staff_id"><b>Staff ID</b></label>
+                <input type="text" name="staff_id" class="form-control" placeholder="Enter Your Staff ID" autocomplete="off" required>
+             </div>
+             <div class="login-box">
+                <label for="password"><b>Password</b></label>
+                <input type="password" name="password" class="form-control" placeholder="Enter Your Password" autocomplete="off" required>
+             </div>
+                <button type="submit" name="submit">Login</button>
+          </div>
+       </form>
+    </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
