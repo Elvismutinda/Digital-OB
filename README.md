@@ -6,4 +6,4 @@ The system is coded in CORE PHP and connected to MariaDB dataabase that stores t
 
 ## How to get a Live Demo.
 
-Click the link to get a live demo -> [Elvis' Digital OB](https://digital-ob.000webhostapp.com/index.php)
+Click the link to get a live demo -> [Elvis' Digital OB](https://digital-ob.000webhostapp.com)
