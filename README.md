@@ -1,4 +1,4 @@
-# Digital_OB-Project
+# Digital O.B
 
 This is a personal project that I came up with to digitize the operations of police stations in my country and also help in tracking entries made in the OB of a police station. The system also helps in evaluating trends in crime in the country.
 
